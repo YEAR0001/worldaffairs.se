@@ -31,7 +31,6 @@ export default function Home({
 		};
 	}[];
 }) {
-	console.log(metadata, contact);
 	return (
 		<>
 			<Head>

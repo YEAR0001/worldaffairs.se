@@ -9,7 +9,16 @@ import Link from "next/link";
 import { useNextSanityImage } from "next-sanity-image";
 
 export default function Release({
-	data: { contact, metadata },
+	data: {
+		contact = {
+			contactPhone: "",
+			contactEmail: "",
+			contactLable: "",
+			ceoName: "",
+			ceoLable: "",
+		},
+		metadata,
+	},
 	release,
 }: {
 	data: {
@@ -71,11 +80,16 @@ export default function Release({
 			<main className={styles.main}>
 				<h1>{release.title}</h1>
 				<div className={styles.image}>
-					<Image src={imgProps.src} fill alt={release.title} />
+					<Image
+						priority
+						src={imgProps.src}
+						fill
+						alt={release.title}
+					/>
 				</div>
 			</main>
 			<footer className={styles.footer}>
-				<div className={"contact-info"}>
+				{/* <div className={"contact-info"}>
 					<div className={"contact-label"}>{contact.ceoLable}: </div>
 					<div>
 						<span>{contact.ceoName}</span>
@@ -95,7 +109,7 @@ export default function Release({
 							{contact.contactPhone}
 						</a>
 					</div>
-				</div>
+				</div> */}
 			</footer>
 		</>
 	);
@@ -111,7 +125,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 	const data = await client.fetch(groq`*[_type == "home"][0]{
 		...,
 	}`);
-
+	console.log(release, data);
 	return {
 		props: {
 			data: data,
@@ -128,6 +142,6 @@ export async function getStaticPaths() {
 		paths: paths.map((slug: string) => ({
 			params: { slug: slug },
 		})),
-		fallback: true,
+		fallback: false,
 	};
 }
