@@ -1,14 +1,16 @@
+import { client } from "../../../sanity/lib/client";
+import { groq } from "next-sanity";
+import slugify from "slugify";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import { groq } from "next-sanity";
-import { client } from "../../sanity/lib/client";
+import { ImageAsset, DateInputProps } from "sanity";
+import styles from "@/styles/Release.module.css";
 import Link from "next/link";
-import { ImageAsset } from "sanity";
+import { useNextSanityImage } from "next-sanity-image";
 
-export default function Home({
+export default function Release({
 	data: { contact, metadata },
-	releases,
+	release,
 }: {
 	data: {
 		contact: {
@@ -24,14 +26,13 @@ export default function Home({
 			ogImage: ImageAsset;
 		};
 	};
-	releases: {
+	release: {
 		title: string;
-		slug: {
-			current: string;
-		};
-	}[];
+		coverArt: ImageAsset;
+		releaseDate: DateInputProps;
+	};
 }) {
-	console.log(metadata, contact);
+	const imgProps = useNextSanityImage(client, release.coverArt);
 	return (
 		<>
 			<Head>
@@ -55,7 +56,7 @@ export default function Home({
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<header className={styles.header}>
+			<header>
 				<Link href="/">
 					<Image
 						priority
@@ -68,16 +69,9 @@ export default function Home({
 				</Link>
 			</header>
 			<main className={styles.main}>
-				<h2>WA Records</h2>
-				<div className={styles.releases}>
-					{releases.map((release) => (
-						<Link
-							key={release.title}
-							href={`/releases/${release.slug.current}`}
-						>
-							{release.title}
-						</Link>
-					))}
+				<h1>{release.title}</h1>
+				<div className={styles.image}>
+					<Image src={imgProps.src} fill alt={release.title} />
 				</div>
 			</main>
 			<footer className={styles.footer}>
@@ -107,20 +101,33 @@ export default function Home({
 	);
 }
 
-export async function getStaticProps({ prewiew = false, params = {} }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
+	const { slug } = params;
+	const release = await client.fetch(
+		groq`*[_type == "release" && slug.current == $slug][0]{...,
+        }`,
+		{ slug }
+	);
 	const data = await client.fetch(groq`*[_type == "home"][0]{
 		...,
 	}`);
-	const releases = await client.fetch(
-		groq`*[_type == "release"][]{
-			..., 
-		}`
-	);
 
 	return {
 		props: {
 			data: data,
-			releases: releases,
+			release: release,
 		},
+	};
+}
+
+export async function getStaticPaths() {
+	const paths = await client.fetch(
+		groq`*[_type == "release" && defined(slug.current)][].slug.current        `
+	);
+	return {
+		paths: paths.map((slug: string) => ({
+			params: { slug: slug },
+		})),
+		fallback: true,
 	};
 }
