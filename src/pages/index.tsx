@@ -17,6 +17,7 @@ export default function Home({
 			contactLable: string;
 			ceoName: string;
 			ceoLable: string;
+			contactInstagram: string;
 		};
 		metadata: {
 			title: string;
@@ -26,9 +27,7 @@ export default function Home({
 	};
 	releases: {
 		title: string;
-		slug: {
-			current: string;
-		};
+		link: string;
 	}[];
 }) {
 	return (
@@ -67,12 +66,13 @@ export default function Home({
 				</Link>
 			</header>
 			<main className={styles.main}>
-				<h2>WA Records</h2>
+				<h2>World Affairs AB Records</h2>
 				<div className={styles.releases}>
 					{releases.map((release) => (
 						<Link
 							key={release.title}
-							href={`/releases/${release.slug.current}`}
+							target="_blank"
+							href={`${release.link}`}
 						>
 							{release.title}
 						</Link>
@@ -100,6 +100,15 @@ export default function Home({
 							{contact.contactPhone}
 						</a>
 					</div>
+					<div>
+						<a
+							target="_blank"
+							rel="noreferrer"
+							href={`https://www.instagram.com/${contact.contactInstagram}/?hl=en`}
+						>
+							@{contact.contactInstagram}
+						</a>
+					</div>
 				</div>
 			</footer>
 		</>
@@ -111,7 +120,7 @@ export async function getStaticProps({ prewiew = false, params = {} }) {
 		...,
 	}`);
 	const releases = await client.fetch(
-		groq`*[_type == "release"][]{
+		groq`*[_type == "release"] | order(releaseDate desc) []{
 			..., 
 		}`
 	);

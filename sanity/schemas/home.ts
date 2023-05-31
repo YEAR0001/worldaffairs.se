@@ -47,6 +47,11 @@ export default {
 					type: "string",
 				},
 				{
+					name: "contactInstagram",
+					title: "Contact Instagram",
+					type: "string",
+				},
+				{
 					name: "ceoLable",
 					title: "CEO Lable",
 					type: "string",

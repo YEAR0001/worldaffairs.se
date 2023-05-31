@@ -5,14 +5,6 @@ export default {
 	type: "document",
 	fields: [
 		{
-			name: "slug",
-			title: "Slug",
-			type: "slug",
-			options: {
-				source: "title",
-			},
-		},
-		{
 			name: "title",
 			title: "Title",
 			type: "string",
@@ -23,9 +15,9 @@ export default {
 			type: "date",
 		},
 		{
-			name: "coverArt",
-			title: "Cover Art",
-			type: "image",
+			name: "link",
+			title: "Link",
+			type: "url",
 		},
 	],
 	orderings: [
