@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--
+  ____  __   ____  ____
+ | __ )|\ \ / /\ \/ /
+ |  _ \\ \ V /  \  / 
+ | |_) |\ | |   /  \ 
+ |____/ |_|_|  /_/\_\
+                     
+ eliot@bosmanxyz.xyz
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD AFFAIRS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Corner images that will be randomly positioned -->
+    <div class="corner-image" id="corner-1"></div>
+    <div class="corner-image" id="corner-2"></div>
+    <div class="corner-image" id="corner-3"></div>
+    <div class="corner-image" id="corner-4"></div>
+    
+    <!-- Corner glyphs from FustSchoeffer font -->
+    <div class="corner-glyph" id="glyph-top-left"></div>
+    <div class="corner-glyph" id="glyph-top-right"></div>
+    <div class="corner-glyph" id="glyph-bottom-left"></div>
+    <div class="corner-glyph" id="glyph-bottom-right"></div>
+    
+    <!-- Large Resurs 3 overlay -->
+    <div class="large-overlay">
+        <object data="img/Resurs 1.svg" type="image/svg+xml" class="overlay-svg"></object>
+    </div>
+    
+    <!-- Center glyphs -->
+    <div class="corner-glyph" id="glyph-center-left"></div>
+    <div class="corner-glyph" id="glyph-center"></div>
+    <div class="corner-glyph" id="glyph-center-right"></div>
+    <!-- SVG containers for trim path animation -->
+    <div class="svg-container svg-top">
+        <object type="image/svg+xml" data="img/Resurs 4.svg" class="svg-object"></object>
+    </div>
+    <div class="svg-container svg-bottom">
+        <object type="image/svg+xml" data="img/Resurs 6.svg" class="svg-object"></object>
+    </div>
+    
+    <div class="resource-container">
+        <div class="resource resource-1 normal"></div>
+        <div class="resource resource-1 mirrored"></div>
+        <div class="resource resource-1 rotated"></div>
+        <div class="resource resource-2 normal"></div>
+        <div class="resource resource-2 mirrored"></div>
+        <div class="resource resource-2 rotated"></div>
+        <div class="resource resource-3 normal"></div>
+        <div class="resource resource-3 mirrored"></div>
+        <div class="resource resource-3 rotated"></div>
+    </div>
+
+    <div class="content-column">
+    <main>
+        <section class="hero">
+            <div class="title-container">
+                <h1>WORLD AFFAIRS</h1>
+            </div>
+        </section>
+        
+        <section class="links">
+            <!-- Frame elements around links -->
+            <div class="frame-element frame-top-left"></div>
+            <div class="frame-element frame-top-right"></div>
+            <div class="frame-element frame-bottom-left"></div>
+            <div class="frame-element frame-bottom-right"></div>
+            
+            <div class="link-row">
+                <a href="#" class="main-link">LISTEN TO 'JONATAN'</a>
+                <a href="https://linktr.ee/" class="main-link">MUSIC</a>
+                <a href="#videos" class="main-link">VIDEOS</a>
+            </div>
+            <div class="link-row">
+                <a href="https://yungleanlive.com" class="main-link">TOUR</a>
+                <a href="https://shop.worldaffairs.se" class="main-link">STORE</a>
+                <a href="#contact" class="main-link">CONTACT</a>
+            </div>
+        </section>
+        
+        <section id="videos" class="videos">
+            <h2>VIDEOS</h2>
+            <div class="container">
+                <!-- Large Resurs 3 overlay -->
+                <div class="large-overlay">
+                    <object data="img/Resurs 3.svg" type="image/svg+xml" class="overlay-svg"></object>
+                </div>
+                
+                <!-- Grain effect -->
+                <div class="grain"></div>
+                <div class="video-links">
+                    <div class="link-row">
+                        <a href="https://www.youtube.com/watch?v=qjYkr78anZs" target="_blank" class="video-link">FOREVER YUNG</a>
+                        <a href="https://www.youtube.com/watch?v=mLojuu9dOko" target="_blank" class="video-link">BABYFACE MANIACS</a>
+                        <a href="https://www.youtube.com/watch?v=aioAlgp_XoQ" target="_blank" class="video-link">GLOBEN CONCERT</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2>CONTACT</h2>
+            <a href="mailto:info@worldaffairs.se">info@worldaffairs.se</a>
+            <p>CEO: Jonatan Leandoer Håstad</p>
+        </section>
+        
+        <section class="newsletter">
+            <h2>NEWSLETTER</h2>
+            <p>Get early access to new collections and exclusive offers.</p>
+            <form autocomplete="off">
+                <input type="email" placeholder="Email address" required autocomplete="off">
+                <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+                <p class="consent">By subscribing, I agree to the privacy and cookie policy and consent to the use of my data in accordance with it.</p>
+            </form>
+            <div class="logo footer-logo"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <div class="link-row">
+                <a href="https://www.instagram.com/worldaffairs" target="_blank">Instagram</a>
+                <a href="https://open.spotify.com/artist/worldaffairs" target="_blank">Spotify</a>
+                <a href="https://www.youtube.com/channel/worldaffairs" target="_blank">YouTube</a>
+            </div>
+        </div>
+    </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize GSAP animations
+            
+            // Film grain is handled by CSS animation on the background
+            
+            // Star glow effect for the title
+            const starGlow = document.querySelector('.star-glow');
+            const titleContainer = document.querySelector('.title-container');
+            const title = document.querySelector('h1');
+            
+            // Set position for title container
+            gsap.set(titleContainer, {
+                position: 'relative',
+                display: 'inline-block'
+            });
+            
+            // Set initial position and style for the star
+            if (starGlow) {
+                gsap.set(starGlow, {
+                    width: '8px',
+                    height: '8px',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%)',
+                    borderRadius: '50%',
+                    position: 'absolute',
+                    filter: 'blur(3px)',
+                    opacity: 0.7,
+                    zIndex: 10,
+                    mixBlendMode: 'overlay',
+                    pointerEvents: 'none',
+                    top: '50%',
+                    left: 0
+                });
+                
+                // Create a simple animation that moves across the title
+                function animateGlow() {
+                    // Reset position to start
+                    gsap.set(starGlow, {
+                        left: 0,
+                        top: '50%',
+                        opacity: 0.7,
+                        scale: 1
+                    });
+                    
+                    // Create a sequence of animations
+                    const sequence = gsap.timeline();
+                    
+                    // Move across the title
+                    sequence.to(starGlow, {
+                        left: title.offsetWidth,
+                        duration: 15,  // Slow movement
+                        ease: 'none'
+                    });
+                    
+                    // Fade out at the end
+                    sequence.to(starGlow, {
+                        opacity: 0,
+                        duration: 0.5
+                    }, '-=0.5');
+                    
+                    // After the sequence completes, wait and restart
+                    sequence.call(() => {
+                        setTimeout(animateGlow, 3000); // Wait 3 seconds before restarting
+                    });
+                }
+                
+                // Start the animation
+                animateGlow();
+                
+                // Add a subtle pulsing effect
+                gsap.to(starGlow, {
+                    scale: 0.8,
+                    duration: 1.5,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            }
+            
+            // Corner image randomization
+            const cornerImages = [
+                { id: 'corner-1', src: 'img/Yung-3648.jpg' },
+                { id: 'corner-2', src: 'img/Yung-3762.jpg' },
+                { id: 'corner-3', src: 'img/Still 2025-02-26 225235_1.88.2.jpg' },
+                { id: 'corner-4', src: 'img/Still 2025-02-26 225235_1.90.1.jpg' }
+            ];
+            
+            // Possible positions for corner images
+            const positions = [
+                { top: 0, left: 0 },             // Top left
+                { top: 0, right: 0 },            // Top right
+                { bottom: 0, left: 0 },          // Bottom left
+                { bottom: 0, right: 0 }          // Bottom right
+            ];
+            
+            // Initialize corner images
+            cornerImages.forEach((image, index) => {
+                const element = document.getElementById(image.id);
+                if (element) {
+                    element.style.backgroundImage = `url(${image.src})`;
+                }
+            });
+            
+            // Function to randomize corner images
+            function randomizeCornerImages() {
+                // Shuffle the positions array
+                const shuffledPositions = [...positions].sort(() => Math.random() - 0.5);
+                
+                // Hide all corner images first
+                cornerImages.forEach(image => {
+                    const element = document.getElementById(image.id);
+                    if (element) {
+                        gsap.set(element, { display: 'none' });
+                    }
+                });
+                
+                // Select 4 random images and position them
+                const selectedImages = [...cornerImages].sort(() => Math.random() - 0.5).slice(0, 4);
+                
+                selectedImages.forEach((image, index) => {
+                    const element = document.getElementById(image.id);
+                    if (element) {
+                        const position = shuffledPositions[index];
+                        
+                        // Reset all position properties
+                        gsap.set(element, {
+                            top: 'auto',
+                            right: 'auto',
+                            bottom: 'auto',
+                            left: 'auto',
+                            display: 'block',
+                            opacity: 0
+                        });
+                        
+                        // Apply new position
+                        gsap.set(element, position);
+                        
+                        // Animate in
+                        gsap.to(element, {
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            }
+            
+            // Initial randomization
+            randomizeCornerImages();
+            
+            // Set interval to randomize every 2 seconds
+            setInterval(randomizeCornerImages, 2000);
+            
+            // FustSchoeffer font glyphs randomization - only cross symbols
+            const crossGlyphs = [
+                '\u2020', // Dagger
+                '\u2021', // Double dagger
+                '\u2670', // West Syriac Cross
+                '\u2671', // East Syriac Cross
+                '\u2626', // Orthodox Cross
+                '\u2627', // Chi Rho
+                '\u2628', // Cross of Lorraine
+                '\u2629'  // Cross of Jerusalem
+            ];
+            
+            const cornerGlyphs = [
+                document.getElementById('glyph-top-left'),
+                document.getElementById('glyph-top-right'),
+                document.getElementById('glyph-bottom-left'),
+                document.getElementById('glyph-bottom-right'),
+                document.getElementById('glyph-center-left'),
+                document.getElementById('glyph-center'),
+                document.getElementById('glyph-center-right')
+            ];
+            
+            function randomizeGlyphs() {
+                cornerGlyphs.forEach(glyphElement => {
+                    if (glyphElement) {
+                        // Get a random glyph from the array
+                        const randomGlyph = crossGlyphs[Math.floor(Math.random() * crossGlyphs.length)];
+                        
+                        // Fade out
+                        gsap.to(glyphElement, {
+                            opacity: 0,
+                            duration: 0.3,
+                            onComplete: () => {
+                                // Change content
+                                glyphElement.textContent = randomGlyph;
+                                
+                                // Fade in
+                                gsap.to(glyphElement, {
+                                    opacity: 0.8,
+                                    duration: 0.3
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // Initial glyph setup
+            randomizeGlyphs();
+            
+            // Set interval to randomize glyphs every 2 seconds
+            setInterval(randomizeGlyphs, 2000);
+            
+            // No SVG animation code needed - using original SVG files
+            
+            // Hover effects for links
+            const links = document.querySelectorAll('a');
+            
+            links.forEach(link => {
+                // Make sure links are visible first
+                gsap.set(link, {
+                    opacity: 1,
+                    visibility: 'visible',
+                    display: 'inline-block'
+                });
+                
+                // Create throughline element for each link
+                const throughline = document.createElement('span');
+                throughline.classList.add('link-throughline');
+                link.appendChild(throughline);
+                
+                // Hover animations
+                link.addEventListener('mouseenter', () => {
+                    gsap.to(link, {
+                        filter: 'blur(0.025rem)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    gsap.to(link, {
+                        filter: 'blur(0.015rem)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+            
+            // Initial page load animation
+            const mainContent = document.querySelector('main');
+            
+            // Make sure all elements are visible!!
+            gsap.set('a, .main-link, .video-link', {
+                opacity: 1,
+                visibility: 'visible'
+            });
+            
+            gsap.from(mainContent, {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.out'
+            });
+            
+            // Form animations
+            const newsletterForm = document.querySelector('.newsletter form');
+            if (newsletterForm) {
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                const subscribeBtn = newsletterForm.querySelector('.subscribe-btn');
+                
+                if (emailInput) {
+                    // Smooth focus animation
+                    emailInput.addEventListener('focus', () => {
+                        gsap.to(emailInput, {
+                            borderBottomColor: 'rgba(25, 25, 25, 0.8)',
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    });
+                    
+                    emailInput.addEventListener('blur', () => {
+                        gsap.to(emailInput, {
+                            borderBottomColor: 'rgba(25, 25, 25, 0.3)',
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    });
+                }
+                
+                if (subscribeBtn) {
+                    // Button hover animation
+                    subscribeBtn.addEventListener('mouseenter', () => {
+                        gsap.to(subscribeBtn, {
+                            opacity: 0.8,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    });
+                    
+                    subscribeBtn.addEventListener('mouseleave', () => {
+                        gsap.to(subscribeBtn, {
+                            opacity: 1,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    });
+                }
+            }
+            
+            // Delay sections instead of all elements
+            const sections = document.querySelectorAll('main > section');
+            gsap.from(sections, {
+                opacity: 0,
+                y: 20,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+            
+            // Blob effect
+            const allLinks = document.querySelectorAll('a');
+            
+            allLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    gsap.to(link, {
+                        color: '#000000',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                    
+                    // Animate the blob
+                    gsap.to(link, {
+                        '--blob-width': '200px',
+                        '--blob-height': '80px',
+                        '--blob-opacity': '1',
+                        duration: 0.4,
+                        ease: 'power1.out'
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    gsap.to(link, {
+                        color: '#191919',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                    
+                    // Animate backwards on the blob
+                    gsap.to(link, {
+                        '--blob-width': '0px',
+                        '--blob-height': '0px',
+                        '--blob-opacity': '0',
+                        duration: 0.4,
+                        ease: 'power1.in'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

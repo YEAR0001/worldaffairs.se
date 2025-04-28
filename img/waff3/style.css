@@ -1,0 +1,827 @@
+/*
+  ____  __   ____  ____
+ | __ )|\ \ / /\ \/ /
+ |  _ \\ \ V /  \  / 
+ | |_) |\ | |   /  \ 
+ |____/ |_|_|  /_/\_\
+                     
+ eliot@bosmanxyz.xyz
+*/
+
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/EurostileRegular.woff2') format('woff2'),
+        url('fonts/EurostileRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EuroStyle';
+    src: url('fonts/EuroStyleNormal.woff2') format('woff2'),
+        url('fonts/EuroStyleNormal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AUTHENTIC Sans';
+    src: url('fonts/AUTHENTICSans-150.woff2') format('woff2'),
+        url('fonts/AUTHENTICSans-150.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AUTHENTIC Sans Condensed';
+    src: url('fonts/AUTHENTICSans-Condensed60.woff2') format('woff2'),
+        url('fonts/AUTHENTICSans-Condensed60.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AUTHENTIC Sans';
+    src: url('fonts/AUTHENTICSans-90.woff2') format('woff2'),
+        url('fonts/AUTHENTICSans-90.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AUTHENTIC Sans';
+    src: url('fonts/AUTHENTICSans-60.woff2') format('woff2'),
+        url('fonts/AUTHENTICSans-60.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AUTHENTIC Sans';
+    src: url('fonts/AUTHENTICSans-Condensed130.woff2') format('woff2'),
+        url('fonts/AUTHENTICSans-Condensed130.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rauchwaren Grunge';
+    src: url('fonts/Rauchwaren-GrungeRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Compacta';
+    src: url('fonts/CompactaBT-Black.woff2') format('woff2'),
+        url('fonts/CompactaBT-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT Cinetype Mono';
+    src: url('fonts/GT-Cinetype-Mono.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ortica Linear';
+    src: url('fonts/OrticaLinear-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FustSchoeffer';
+    src: url('fonts/FustSchoeffer-DurandusGotico-Antiqua118G.woff2') format('woff2'),
+         url('fonts/FustSchoeffer-DurandusGotico-Antiqua118G.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Editorial New';
+    src: url('fonts/EditorialNew-Regular.woff2') format('woff2'),
+         url('fonts/EditorialNew-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Editorial New';
+    src: url('fonts/EditorialNew-Bold.woff2') format('woff2'),
+         url('fonts/EditorialNew-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Editorial New';
+    src: url('fonts/EditorialNew-Thin.woff2') format('woff2'),
+         url('fonts/EditorialNew-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Editorial New';
+    src: url('fonts/EditorialNew-Ultralight.woff2') format('woff2'),
+         url('fonts/EditorialNew-Ultralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Editorial New';
+    src: url('fonts/EditorialNew-Ultrabold.woff2') format('woff2'),
+         url('fonts/EditorialNew-Ultrabold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --ad: #adadad;
+    --nt: #191919;
+    --grain-opacity: 0.15; /* Controls the intensity of the film grain */
+    --grain-density: 100%; /* Controls how dense the grain appears */
+    --grain-size: 0.01px; /* Controls the size of individual grain particles */
+}
+
+body {
+    margin: 0;
+    background-color: var(--ad);
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    /*
+    box-shadow: inset var(--ad) 0.012rem 0.012rem 0.6rem 0.12rem;
+    */
+    border-radius: none;
+}
+
+main {
+    min-height: 100vh,
+}
+
+a {
+    text-decoration: none;
+}
+
+.hero h1 {
+    font-family: 'FustSchoeffer';
+    filter: blur(0.033rem);
+    transform: scaleY(80%);
+    letter-spacing: 4rem;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke-color: var(--ad);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, a:active, li, ol, sup, abbr, 
+i, b, marquee, form, input, button, span, div{
+    color: var(--nt);
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    font-size: 1rem;
+    color: var(--nt) !important;
+    text-align: center;
+    font-family: 'Editorial New', serif;
+    filter: blur(0.25px);
+    font-weight: normal;
+}
+
+form, input, button {
+    background: none; border: none;
+}
+
+body {
+    position: relative;
+}
+
+/* avstånd och layout för sektioner */
+section {
+    padding: 0.75rem 1rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* huvudinnehållsbehållare för att passa inom visningsområdet */
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    overflow-y: auto;
+    padding-right: 5px; /* utrymme för rullningslist */
+    scrollbar-width: thin;
+}
+
+main::-webkit-scrollbar {
+    width: 5px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--ad);
+    border-radius: 10px;
+}
+
+/* styling for link section */
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80vw;
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* Frame elements around links - BXYZ */
+.frame-element {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('img/Resurs 2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.frame-top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-30%, -30%);
+}
+
+.frame-top-right {
+    top: 0;
+    right: 0;
+    transform: translate(30%, -30%) rotate(90deg);
+}
+
+.frame-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-30%, 30%) rotate(270deg);
+}
+
+.frame-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(30%, 30%) rotate(180deg);
+}
+
+.link-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap; /* Allow links to wrap if needed */
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.link-row::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: rgba(25, 25, 25, 0.2);
+    transition: width 0.5s ease, left 0.5s ease;
+}
+
+.link-row:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.link-row a {
+    margin: 0.8rem 1.2rem;
+    display: inline-block;
+    position: relative;
+    font-family: 'Editorial New', serif;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+.link-row a::before,
+.link-row a::after,
+.link-row a .link-throughline {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-image: url('img/Resurs 4.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.link-row a::before {
+    top: -5px;
+}
+
+.link-row a::after {
+    bottom: -5px;
+}
+
+.link-row a .link-throughline {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.link-row a:hover::before,
+.link-row a:hover::after,
+.link-row a:hover .link-throughline {
+    width: 100%;
+}
+
+/* styling för videosektionen */
+.videos .link-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    text-align-last: center;
+}
+
+/* compact layout for all sections to fit in the viewport */
+.newsletter, .contact {
+    display: block;
+    padding: 0.5rem 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Editorial New', serif;
+}
+
+/* Footer social links styling */
+.social-links {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.social-links .link-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.social-links a {
+    font-family: 'Editorial New', serif;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin: 0 1rem;
+    position: relative;
+}
+
+.newsletter form {
+    margin: 0.5rem auto;
+}
+
+.newsletter h2, .contact h2 {
+    font-family: 'Editorial New', serif;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.newsletter p, .contact p {
+    margin: 0.25rem 0;
+    font-family: 'Editorial New', serif;
+}
+
+.contact a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem auto;
+    font-family: 'Editorial New', serif;
+    text-decoration: none;
+    color: #191919;
+    transition: all 0.3s ease;
+}
+
+.contact a:hover {
+    opacity: 0.7;
+}
+
+.newsletter input, .newsletter button {
+    margin: 0.25rem 0;
+    padding: 0.25rem;
+    font-family: 'Editorial New', serif;
+}
+
+.newsletter button {
+    background: transparent;
+    border: 1px solid #191919;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter button:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.consent {
+    font-size: 0.6rem;
+    font-family: 'Editorial New', serif;
+    max-width: 100%;
+    padding-top: 2vh;
+    margin: 1rem auto 0;
+    line-height: 1.4;
+    text-align: center;
+    display: block;
+    letter-spacing: 0.03em;
+}
+
+/* SVG containers for trim path animation - BXYZ */
+.svg-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.svg-top {
+    top: 20px;
+}
+
+.svg-bottom {
+    bottom: 20px;
+}
+
+.svg-object {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.svg-container svg {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+
+/* Make sure SVG paths are visible */
+#resurs4-svg path, #resurs6-svg path {
+    stroke: #191919;
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+}
+
+/* innehållskolumn */
+.content-column {
+    width: 50vw;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+    position: relative;
+    z-index: 20;
+}
+
+.link-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align-last: center;
+}
+
+/* resursanimering */
+.resource-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.resource {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    mix-blend-mode: difference;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+    animation-duration: 4.5s;
+}
+
+/* grundläggande resursstilar */
+.resource-1 {
+    background-image: url('img/Resurs 1.svg');
+}
+
+.resource-2 {
+    background-image: url('img/Resurs 2.svg');
+}
+
+.resource-3 {
+    background-image: url('img/Resurs 3.svg');
+}
+
+/* transformationsvariationer */
+.normal {
+    transform: none;
+}
+
+.mirrored {
+    transform: scaleX(-1);
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+/* animeringstiming för varje variation */
+.resource-1.normal {
+    animation-name: resource-animation-1;
+}
+
+.resource-1.mirrored {
+    animation-name: resource-animation-4;
+}
+
+.resource-1.rotated {
+    animation-name: resource-animation-7;
+}
+
+.resource-2.normal {
+    animation-name: resource-animation-2;
+}
+
+.resource-2.mirrored {
+    animation-name: resource-animation-5;
+}
+
+.resource-2.rotated {
+    animation-name: resource-animation-8;
+}
+
+.resource-3.normal {
+    animation-name: resource-animation-3;
+}
+
+.resource-3.mirrored {
+    animation-name: resource-animation-6;
+}
+
+.resource-3.rotated {
+    animation-name: resource-animation-9;
+}
+
+/* animeringsnycklar för alla 9 variationer */
+@keyframes resource-animation-1 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    0.01%, 11.10% { opacity: 1; }
+}
+
+@keyframes resource-animation-2 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    11.12%, 22.21% { opacity: 1; }
+}
+
+@keyframes resource-animation-3 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    22.23%, 33.32% { opacity: 1; }
+}
+
+@keyframes resource-animation-4 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    33.34%, 44.43% { opacity: 1; }
+}
+
+@keyframes resource-animation-5 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    44.45%, 55.54% { opacity: 1; }
+}
+
+@keyframes resource-animation-6 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    55.56%, 66.65% { opacity: 1; }
+}
+
+@keyframes resource-animation-7 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    66.67%, 77.76% { opacity: 1; }
+}
+
+@keyframes resource-animation-8 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    77.78%, 88.87% { opacity: 1; }
+}
+
+@keyframes resource-animation-9 {
+    0%, 11.11%, 22.22%, 33.33%, 44.44%, 55.55%, 66.66%, 77.77%, 88.88%, 100% { opacity: 0; }
+    88.89%, 99.99% { opacity: 1; }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('YL-TEXTURE-DESKTOP.jpg');
+    background-size: 100%;
+    background-position: right;
+    opacity: 0.2;
+    mix-blend-mode:hard-light;
+    filter: contrast(0.99) brightness(2) grayscale(100);
+    animation: grain-animation 0.012s steps(1) infinite; /* 12fps animation - BXYZ */
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes grain-animation {
+    0% { background-size: 100%;  }
+    8.33% { background-size: 102%;  }
+    16.66% { background-size: 104%; }
+    25% { background-size: 102%;  }
+    33.33% { background-size: 102%;  }
+    41.66% { background-size: 108%;}
+    50% { background-size: 112%; }
+    58.33% { background-size: 102%;  }
+    66.66% { background-size: 104%;  }
+    75% { background-size: 108%;  }
+    83.33% { background-size: 101%;  }
+    91.66% { background-size: 104%;}
+    100% { background-size: 106%;  }
+}
+
+.hero {
+    width: 100%;
+    text-align: center;
+    transform: rotate(0.25deg);
+    padding: 1rem 1rem;
+    max-height: 30vh;
+    overflow-y: hidden;
+}
+
+footer {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.corner-image {
+    position: fixed;
+    height: 40vh; /* 1/5th of viewport height */
+    width: 26vh; /* 4:5 aspect ratio (height:width) */
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    opacity: 1;
+    mix-blend-mode: difference;
+    z-index: 1001;
+    filter: contrast(0.99) brightness(2) grayscale(100);
+    transition: all 0.5s ease;
+    display: none; /* Initially hidden, will be controlled by GSAP */
+}
+
+/* Large Resurs 1 overlay styling - BXYZ */
+.large-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4000px;
+    height: 4000px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+.overlay-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%);
+}
+
+/* Change the SVG fill color to #adadad - BXYZ */
+.overlay-svg path {
+    fill: #adadad !important;
+}
+
+.corner-left {
+    left: 0vw;
+    background-image: url('img/Yung-3648.jpg');
+}
+
+.corner-right {
+    right: 0vw;
+    top: 0;
+    background-image: url('img/Yung-3762.jpg');
+}
+
+/* Corner glyphs styling */
+.corner-glyph {
+    position: fixed;
+    font-family: 'FustSchoeffer';
+    font-size: 2rem;
+    color: var(--nt);
+    mix-blend-mode: difference;
+    z-index: 1002;
+    opacity: 0.8;
+    filter: blur(0.5px);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+#glyph-top-left {
+    top: 20px;
+    left: 20px;
+}
+
+#glyph-top-right {
+    top: 20px;
+    right: 20px;
+}
+
+#glyph-bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+#glyph-bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Center glyphs */
+#glyph-center-left {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+#glyph-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#glyph-center-right {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
