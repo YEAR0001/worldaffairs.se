@@ -1,0 +1,121 @@
+/* Responsive CSS for consistent spacing across all devices */
+
+/* Base styles that apply to all screen sizes */
+:root {
+    --item-spacing: 0.75rem;
+    --section-title-margin: 1.5rem;
+    --platform-links-gap: 1rem;
+}
+
+/* Small devices (phones, less than 768px) */
+@media screen and (max-width: 767px) {
+    :root {
+        --item-spacing: 0.5rem;
+        --section-title-margin: 1rem;
+        --platform-links-gap: 0.5rem;
+    }
+    
+    .video-item, .music-item {
+        margin-bottom: var(--item-spacing);
+    }
+    
+    .platform-links {
+        gap: var(--platform-links-gap);
+    }
+    
+    .section-title {
+        margin: 0 0 var(--section-title-margin) 0;
+    }
+}
+
+/* Medium devices (tablets, 768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    :root {
+        --item-spacing: 0.65rem;
+        --section-title-margin: 1.25rem;
+        --platform-links-gap: 0.75rem;
+    }
+    
+    .video-item, .music-item {
+        margin-bottom: var(--item-spacing);
+    }
+    
+    .platform-links {
+        gap: var(--platform-links-gap);
+    }
+    
+    .section-title {
+        margin: 0 0 var(--section-title-margin) 0;
+    }
+}
+
+/* Large devices (desktops, 1024px to 1439px) */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    :root {
+        --item-spacing: 0.7rem;
+        --section-title-margin: 1.35rem;
+        --platform-links-gap: 0.85rem;
+    }
+    
+    .video-item, .music-item {
+        margin-bottom: var(--item-spacing);
+    }
+    
+    .platform-links {
+        gap: var(--platform-links-gap);
+    }
+    
+    .section-title {
+        margin: 0 0 var(--section-title-margin) 0;
+    }
+}
+
+/* Extra large devices (large desktops, 1440px and up) */
+@media screen and (min-width: 1440px) {
+    :root {
+        --item-spacing: 0.75rem;
+        --section-title-margin: 1.5rem;
+        --platform-links-gap: 1rem;
+    }
+    
+    .video-item, .music-item {
+        margin-bottom: var(--item-spacing);
+    }
+    
+    .platform-links {
+        gap: var(--platform-links-gap);
+    }
+    
+    .section-title {
+        margin: 0 0 var(--section-title-margin) 0;
+        margin-top: 1.15rem;
+    }
+}
+
+/* Cross-browser consistency fixes */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure consistent font rendering across devices */
+.video-link, .music-link, .platform-link {
+    text-rendering: optimizeLegibility;
+}
+
+/* Ensure consistent spacing for expanded items */
+.video-item.active, .music-item.active {
+    margin-bottom: calc(var(--item-spacing) + var(--platform-links-gap) + 1rem);
+}
+
+/* Fix for MacBook Air and other high-DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+    .video-link, .music-link {
+        letter-spacing: 0.2em !important;
+    }
+    
+    .platform-link {
+        letter-spacing: 0.15em !important;
+    }
+}
