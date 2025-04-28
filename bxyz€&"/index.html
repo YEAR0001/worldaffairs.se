@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!--
+  ____  __   ____  ____
+ | __ )|\ \ / /\ \/ /
+ |  _ \\ \ V /  \  / 
+ | |_) |\ | |   /  \ 
+ |____/ |_|_|  /_/\_\
+                     
+ eliot@bosmanxyz.xyz
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD AFFAIRS - Record Label by Yung Lean</title>
+    <meta name="description" content="World Affairs is a record label founded and owned by Yung Lean, based in Stockholm, Sweden. Featuring releases from Yung Lean, Bladee, and Jonatan Leandoer96.">
+    <meta name="keywords" content="World Affairs, Yung Lean, Bladee, Jonatan Leandoer96, Stockholm, record label, Psykos, Stardust, Shadowboxing, Victorious, Blodhundar & Lullabies">
+    <meta property="og:title" content="WORLD AFFAIRS - Record Label by Yung Lean">
+    <meta property="og:description" content="World Affairs is a record label founded in 2020 by Yung Lean, based in Stockholm, Sweden.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.worldaffairs.se">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WORLD AFFAIRS - Record Label by Yung Lean">
+    <meta name="twitter:description" content="World Affairs is a record label founded in 2020 by Yung Lean, based in Stockholm, Sweden.">
+    <link rel="canonical" href="https://www.worldaffairs.se">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" type="image/png" href="img/World Affairs - Logo 6.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    
+    <!-- Fix for mobile Safari viewport height issues -->
+    <script>
+        // Fix for mobile Safari viewport height issues with browser bar
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Set the value on initial load
+        window.addEventListener('load', setVH);
+        
+        // Update the value on resize/orientation change
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+    </script>
+</head>
+<body>
+    <!-- hörn-kors som använder yl-cross.svg -->
+    <div class="corner-glyph" id="glyph-top-left">
+        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
+    </div>
+    <div class="corner-glyph" id="glyph-top-right">
+        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
+    </div>
+    <div class="corner-glyph" id="glyph-bottom-left">
+        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
+    </div>
+    <div class="corner-glyph" id="glyph-bottom-right">
+        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
+    </div>
+    
+    <!-- animerad bild med korneffekt -->
+    <div class="animated-image-container">
+        <div class="animated-image"></div>
+        <div class="grain-overlay"></div>
+    </div>
+    
+    <div class="corner-image corner-left"></div>
+    <div class="corner-image corner-right"></div>
+    <div class="resurs4-container"></div>
+    <div class="resurs6-container"></div>
+    
+    <!-- stort kors-overlay med animeringar -->
+    <div class="resource-container">
+        <div class="resource cross-resource normal">
+            <img src="yl-cross.svg" alt="Cross" class="resource-cross">
+        </div>
+        <div class="resource cross-resource mirrored">
+            <img src="yl-cross.svg" alt="Cross" class="resource-cross">
+        </div>
+        <div class="resource cross-resource rotated">
+            <img src="yl-cross.svg" alt="Cross" class="resource-cross">
+        </div>
+        <div class="resource cross-resource flipped">
+            <img src="yl-cross.svg" alt="Cross" class="resource-cross">
+        </div>
+        <div class="resource cross-resource diagonal">
+            <img src="yl-cross.svg" alt="Cross" class="resource-cross">
+        </div>
+    </div>
+
+    <div class="content-column">
+    <main>
+        <section class="hero">
+            <div class="title-container">
+                <a href="index.html" class="title-link">
+                    <h1>WORLD AFFAIRS</h1>
+                </a>
+            </div>
+        </section>
+        
+        <section class="links" id="main-links">
+            <div class="link-row presave-row">
+                <a href="https://yunglean.komi.io/" target="blank" class="main-link presave-link">PRE-SAVE JONATAN</a>
+            </div>
+            <div class="link-row other-links">
+                <a href="#" class="main-link" id="music-link">MUSIC</a>
+                <a href="#" class="main-link" id="videos-link">VIDEOS</a>
+                <a href="https://yungleanlive.com" class="main-link" target="blank">TOUR</a>
+                <a href="https://store.worldaffairs.se" class="main-link" target="blank">STORE</a>
+            </div>
+            <!-- logo-markören flyttad till sidfoten -->
+        </section>
+        
+        <section class="video-links" id="video-section">
+            <h2 class="section-title">VIDEOS</h2>
+            <div class="back-button">
+                <div class="back-cross"><img src="yl-cross.svg" alt="Cross"></div>
+                <div class="back-text">BACK</div>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <a href="#" class="video-link" data-video="jonatan">JONATAN</a>
+                    <div class="platform-links" id="jonatan-links">
+                        <a href="https://www.youtube.com/watch?v=qjYkr78anZs" target="blank" class="platform-link">FOREVER YUNG</a>
+                        <a href="https://www.youtube.com/watch?v=aioAlgp_XoQ" target="blank" class="platform-link">BABYFACE MANIACS</a>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <a href="#" class="video-link" data-video="globen">LIVE AT GLOBEN</a>
+                    <div class="platform-links" id="globen-links">
+                        <a href="https://www.youtube.com/watch?v=mLojuu9dOko" target="blank" class="platform-link">FULL CONCERT (LIVE)</a>
+                        <a href="https://www.youtube.com/watch?v=O6OdWFAppLA" target="blank" class="platform-link">NEVER AGAIN (LIVE)</a>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <a href="#" class="video-link" data-video="psykos">PSYKOS</a>
+                    <div class="platform-links" id="psykos-video-links">
+                        <a href="https://www.youtube.com/watch?v=X1A0maG9k7M" target="blank" class="platform-link">GHOSTS</a>
+                        <a href="https://www.youtube.com/watch?v=an_gnfu2Sfw" target="blank" class="platform-link">THINGS HAPPEN</a>
+                        <a href="https://www.youtube.com/watch?v=OKV0M2lEm-s" target="blank" class="platform-link">GOLDEN GOD</a>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=dX-2IiYkm1M" target="_blank" class="video-link direct-link">SHADOWBOXING</a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=G9PSgWrhfSU" target="_blank" class="video-link direct-link">VICTORIOUS</a>
+                </div>
+                
+                <div class="video-item">
+                    <a href="#" class="video-link" data-video="stardust">STARDUST</a>
+                    <div class="platform-links" id="stardust-video-links">
+                        <a href="https://youtu.be/2N1liztehz8?si=DtINC_0nzIb3ou1R" target="blank" class="platform-link">BLISS</a>
+                        <a href="https://www.youtube.com/watch?v=nsI8d4jx5GE" target="blank" class="platform-link">PARADISE LOST</a>
+                        <a href="https://www.youtube.com/watch?v=Ysf6pcyeBsY" target="blank" class="platform-link">TRIP</a>
+                        <a href="https://www.youtube.com/watch?v=mKd5QMeXqWs" target="blank" class="platform-link">WATERFALL</a>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <a href="#" class="video-link" data-video="blodhundar">BLODHUNDAR & LULLABIES</a>
+                    <div class="platform-links" id="blodhundar-video-links">
+                        <a href="https://www.youtube.com/watch?v=Q3xjwTNeaho" target="blank" class="platform-link">EVIL</a>
+                        <a href="https://www.youtube.com/watch?v=WaXVELmQeWc" target="blank" class="platform-link">HIGHWAY</a>
+                        <a href="https://www.youtube.com/watch?v=wcro7Hdpz6s" target="blank" class="platform-link">MACHINES</a>
+                        <a href="https://www.youtube.com/watch?v=ADXs2g0xKyM" target="blank" class="platform-link">SNAKE ICE</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="music-links" id="music-section">
+            <h2 class="section-title">MUSIC</h2>
+            <div class="back-button">
+                <div class="back-cross"><img src="yl-cross.svg" alt="Cross"></div>
+                <div class="back-text">BACK</div>
+            </div>
+            <div class="music-grid">
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="jonatan">JONATAN (2025)</a>
+                    <div class="platform-links" id="jonatan-links">
+                        <a href="https://yunglean.komi.io/" target="blank" class="platform-link">PRE-SAVE</a>
+                    </div>
+                </div>
+                
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="psykos-album">PSYKOS (2024)</a>
+                    <div class="platform-links" id="psykos-album-links">
+                        <a href="https://open.spotify.com/album/6aLnXrlksffrrHRb6ktBF9" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/psykos/1738277857" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+            
+        
+
+                
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="stardust">STARDUST (2022)</a>
+                    <div class="platform-links" id="stardust-links">
+                        <a href="https://open.spotify.com/album/7v6htsHRSZ34XJCki1uZxB" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/stardust/1617839600" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+            
+                
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="blodhundar">BLODHUNDAR & LULLABIES (2020)</a>
+                    <div class="platform-links" id="blodhundar-links">
+                        <a href="https://open.spotify.com/album/0JqAOpJcrfRXi156OhJL7E?si=FELql9D4R06QVQZ1OwgkNA" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/se/album/blodhundar-lullabies/1544739394" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+
+
+                <h2 class="section-title" style="margin-bottom: 1.15rem">SINGLES</h2>
+
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="home">HOME (2024)</a>
+                    <div class="platform-links" id="home-links">
+                        <a href="https://open.spotify.com/album/551hpHmYNDkKQ6w3Y1DW01?si=5CMwtUbBRR6vafBs7CLSRQ" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/se/album/home-single/1764977755" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+                
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="shadowboxing">SHADOWBOXING (2024)</a>
+                    <div class="platform-links" id="shadowboxing-music-links">
+                        <a href="https://open.spotify.com/album/1HUf8zUI0a5FUpPUz5iWnB" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/shadowboxing-single/1747794014" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+        
+                
+                <div class="music-item">
+                    <a href="#" class="music-link" data-album="victorious">VICTORIOUS // BULLETS (2023)</a>
+                    <div class="platform-links" id="victorious-links">
+                        <a href="https://open.spotify.com/album/0ExGbjosILPh9lf3dCIM9z?si=tY_G-_gpQMKujzvbe-Tsiw" target="blank" class="platform-link">SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/victorious-bullets-feat-bladee-single/1702705727" target="blank" class="platform-link">APPLE MUSIC</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+<div class="spacer"></div>
+
+        <div class="bottom-content">
+            
+            <section class="newsletter">
+                <form id="newsletter-form" action="https://formspree.io/f/info@worldaffairs.se" method="POST" autocomplete="off">
+                    <div class="newsletter-row">
+                        <h2>NEWSLETTER</h2>
+                        <input type="email" name="email" placeholder="Email address" required autocomplete="off">
+                        <input type="hidden" name="_subject" value="New Newsletter Signup">
+                        <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+                    </div>
+                    <p class="consent">By subscribing, I agree to the privacy and cookie policy and consent to the use of my data in accordance with it.</p>
+                </form>
+                <div id="thank-you-message" class="hidden">
+                    <h2>THANK YOU</h2>
+                    <p>You have been added to our newsletter.</p>
+                </div>
+                <div class="logo footer-logo"></div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <div class="link-row">
+                <a href="https://www.instagram.com/worldaffairsincorporated/" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/arizonaicedoutboys/" target="_blank">FACEBOOK</a>
+                <a href="https://www.youtube.com/channel/UCQSUJUDbJMzph0_vpyzvzZQ" target="_blank">YouTube</a>
+                <a href="mailto:info@worldaffairs.se" target="_blank">Contact</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="footer-logo-container">
+                <img src="YL_HAT_1.png" alt="Logo" class="footer-logo" id="footer-hat-image">
+            </div>
+            <div class="copyright-text">&copy; World Affairs Ab</div>
+        </div>
+    </footer>
+    </div>
+    
+    <!-- hatt-loggan flyttad tillbaka till sidfoten -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/buzzfeed/libgif-js@master/libgif.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hatStyle = document.createElement('style');
+            hatStyle.textContent = `
+                .footer-logo-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    margin: 0 auto 5px auto;
+                }
+                
+                .footer-logo {
+                    display: block;
+                    opacity: 0.5;
+                    width: 30px; /* Small size */
+                    height: auto;
+                    margin: 0 auto;
+                    padding-bottom: 1vh;
+                }
+                
+                .copyright-text {
+                    display: block;
+                    text-align: center;
+                    font-size: 0.7rem;
+                    opacity: 0.7;
+                    letter-spacing: 1pt;
+                }
+            `;
+            document.head.appendChild(hatStyle);
+            
+
+            // initialisera gsap-animeringar
+            
+            // filmkorn hanteras nu av css-animering på bakgrunden
+            
+            // hörn-kors element
+            const cornerCrosses = document.querySelectorAll('.corner-cross');
+            
+            // möjliga rotationsvinklar (upp, ner och några variationer)
+            const rotationAngles = [0, 180, 45, 135, 225, 315];
+            
+            function randomizeGlyphs() {
+                cornerCrosses.forEach(crossElement => {
+                    if (crossElement) {
+                        // hämta en slumpmässig rotationsvinkel
+                        const randomRotation = rotationAngles[Math.floor(Math.random() * rotationAngles.length)];
+                        
+                        // tona ut väldigt långsamt
+                        gsap.to(crossElement, {
+                            opacity: 0,
+                            duration: 1.5,
+                            onComplete: () => {
+                                // ändra rotation
+                                gsap.set(crossElement, {
+                                    rotation: randomRotation
+                                });
+                                
+                                // tona in väldigt långsamt
+                                gsap.to(crossElement, {
+                                    opacity: 0.8,
+                                    duration: 1.5
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // initial glyf-inställning
+            randomizeGlyphs();
+            
+            // minska frekvensen av glyf-slumpning för att förbättra prestandan
+            setInterval(randomizeGlyphs, 30000);
+            
+            // animerad bild med korneffekt
+            const animatedImage = document.querySelector('.animated-image');
+            const grainOverlay = document.querySelector('.grain-overlay');
+            const imageContainer = document.querySelector('.animated-image-container');
+            
+            // skapa en tidslinje för bildanimeringen
+            const imageAnimation = gsap.timeline({
+                repeat: -1,
+                yoyo: true,
+                repeatDelay: 1
+            });
+            
+            // skapa en äkta upplösningseffekt med blend mode-övergång
+            // först, sätt initial tillstånd
+            gsap.set(animatedImage, { opacity: 0 });
+            
+            // skapa en array med blend modes att växla mellan
+            const blendModes = ['normal', 'multiply', 'screen', 'overlay', 'difference', 'exclusion', 'hard-light'];
+            let currentBlendIndex = 0;
+            
+            // funktion för att direkt ställa in blend mode
+            function setBlendMode(mode) {
+                animatedImage.style.mixBlendMode = mode;
+                console.log('Setting blend mode to:', mode); // Debug log
+            }
+            
+            // ersätt GSAP med CSS-animeringar för bättre prestanda
+            const animatedImageStyle = document.createElement('style');
+            animatedImageStyle.textContent = `
+                @keyframes imageOpacity {
+                    0% { opacity: 0.3; }
+                    25% { opacity: 0.4; }
+                    50% { opacity: 0.5; }
+                    75% { opacity: 0.4; }
+                    100% { opacity: 0.3; }
+                }
+                
+                .animated-image {
+                    opacity: 0.3;
+                    animation: imageOpacity 10s infinite ease-in-out;
+                    mix-blend-mode: overlay;
+                }
+            `;
+            document.head.appendChild(animatedImageStyle);
+            
+            // sätt initial blend mode och hoppa över komplex blend mode-växling
+            animatedImage.style.mixBlendMode = 'overlay';
+            
+            // ersätt GSAP flytande animation med CSS
+            const floatAnimation = document.createElement('style');
+            floatAnimation.textContent = `
+                @keyframes floatingContainer {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    50% { transform: translate(3px, 5px) rotate(0.5deg); }
+                    100% { transform: translate(0, 0) rotate(0deg); }
+                }
+                
+                .animated-image-container {
+                    animation: floatingContainer 12s infinite ease-in-out;
+                }
+            `;
+            document.head.appendChild(floatAnimation);
+            
+            // ta bort trasig animationskod
+            
+            // optimerad kornanimation med CSS istället för JS-animation
+            // detta minskar JavaScript-overhead och använder GPU-acceleration
+            const grainAnimation = document.createElement('style');
+            grainAnimation.textContent = `
+                @keyframes subtle-grain-movement {
+                    0% { transform: translate(0, 0) translateZ(0); }
+                    25% { transform: translate(5px, -5px) translateZ(0); }
+                    50% { transform: translate(-3px, 2px) translateZ(0); }
+                    75% { transform: translate(-5px, -2px) translateZ(0); }
+                    100% { transform: translate(0, 0) translateZ(0); }
+                }
+                .grain-overlay {
+                    animation: subtle-grain-movement 8s infinite ease-in-out;
+                }
+            `;
+            document.head.appendChild(grainAnimation);
+            
+            // visa korn-overlayet
+            grainOverlay.style.display = 'block';
+            
+            // länk-växlingsfunktionalitet
+            const videosLink = document.getElementById('videos-link');
+            const musicLink = document.getElementById('music-link');
+            const mainLinks = document.getElementById('main-links');
+            const videoSection = document.getElementById('video-section');
+            const musicSection = document.getElementById('music-section');
+            const backButtons = document.querySelectorAll('.back-button');
+            
+            // se till att huvudlänkarna är synliga vid sidladdning med vanliga DOM-metoder
+            mainLinks.style.opacity = '1';
+            mainLinks.style.display = 'flex';
+            videoSection.style.opacity = '0';
+            videoSection.style.display = 'none';
+            musicSection.style.opacity = '0';
+            musicSection.style.display = 'none';
+            
+            // lägg till CSS-övergångar för jämnare effekter utan GSAP
+            const transitionStyle = document.createElement('style');
+            transitionStyle.textContent = `
+                #main-links, #video-section, #music-section {
+                    transition: opacity 0.5s ease;
+                }
+            `;
+            document.head.appendChild(transitionStyle);
+            
+            // klickhanterare för videolänk
+            videosLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                //  main links
+                mainLinks.style.opacity = '0';
+                
+               
+                setTimeout(() => {
+                    mainLinks.style.display = 'none';
+                    
+                    // visa videosektionen
+                    videoSection.style.display = 'flex';
+                    setTimeout(() => {
+                        videoSection.style.opacity = '1';
+                    }, 10);
+                }, 500);
+            });
+            
+            // klickhanterare för musiklänk
+            musicLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hide main links
+                mainLinks.style.opacity = '0';
+                
+                // Use setTimeout instead of GSAP for transition
+                setTimeout(() => {
+                    mainLinks.style.display = 'none';
+                    
+                    // visa musiksektionen
+                    musicSection.style.display = 'flex';
+                    setTimeout(() => {
+                        musicSection.style.opacity = '1';
+                    }, 10);
+                }, 500);
+            });
+            
+            // inlagda click handlers
+            backButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentSection = document.querySelector('.video-links:not([style*="display: none"]), .music-links:not([style*="display: none"])');
+                    
+                    // göm
+                    currentSection.style.opacity = '0';
+                    
+                    // testa timeOut
+                    setTimeout(() => {
+                        currentSection.style.display = 'none';
+                        
+                        // Show main links
+                        mainLinks.style.display = 'flex';
+                        setTimeout(() => {
+                            mainLinks.style.opacity = '1';
+                        }, 10);
+                    }, 500);
+                });
+            });
+            
+            // stjärnglödseffekt för titeln
+            const starGlow = document.querySelector('.star-glow');
+            const titleContainer = document.querySelector('.title-container');
+            const title = document.querySelector('h1');
+            
+            // ställ in position för titelbehållaren
+            gsap.set(titleContainer, {
+                position: 'relative',
+                display: 'inline-block'
+            });
+            
+            // ställ in initial position och stil för stjärnan
+            gsap.set(starGlow, {
+                width: '8px',
+                height: '8px',
+                background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%)',
+                borderRadius: '50%',
+                position: 'absolute',
+                filter: 'blur(3px)',
+                opacity: 0.7,
+                zIndex: 10,
+                mixBlendMode: 'overlay',
+                pointerEvents: 'none',
+                top: '50%',
+                left: 0
+            });
+            
+            // gsap css anim istallet
+            const glowAnimation = document.createElement('style');
+            glowAnimation.textContent = `
+                @keyframes titleGlow {
+                    0% { left: 0; opacity: 0.7; }
+                    90% { left: 100%; opacity: 0.7; }
+                    100% { left: 100%; opacity: 0; }
+                }
+                
+                .title-glow {
+                    width: 8px;
+                    height: 8px;
+                    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+                    border-radius: 50%;
+                    position: absolute;
+                    filter: blur(3px);
+                    opacity: 0.7;
+                    z-index: 10;
+                    mix-blend-mode: overlay;
+                    pointer-events: none;
+                    top: 50%;
+                    left: 0;
+                    animation: titleGlow 18s infinite linear;
+                }
+            `;
+            document.head.appendChild(glowAnimation);
+            
+            // starglow legacy ta bort
+            if (starGlow) {
+                starGlow.className = 'title-glow';
+            }
+            
+            // lägg till en subtil pulserande effekt
+            const pulseAnimation = document.createElement('style');
+            pulseAnimation.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(0.8); }
+                    100% { transform: scale(1); }
+                }
+                
+                .title-glow {
+                    animation: pulse 1.5s infinite ease-in-out;
+                }
+            `;
+            document.head.appendChild(pulseAnimation);
+            
+            // hover-effekter för länkar
+            const links = document.querySelectorAll('a');
+            
+            links.forEach(link => {
+                // se till att länkar är synliga först
+                gsap.set(link, {
+                    opacity: 1,
+                    visibility: 'visible',
+                    display: 'inline-block'
+                });
+                
+                //  throughline element 
+                const throughline = document.createElement('span');
+                throughline.classList.add('link-throughline');
+                link.appendChild(throughline);
+                
+                gsap.set(throughline, {
+                    width: '0%',
+                    height: '1px',
+                    backgroundColor: '#191919',
+                    position: 'absolute',
+                    top: '50%', 
+                    left: '0',
+                    filter: 'blur(0px)',
+                    opacity: 0.7,
+                    zIndex: 0
+                });
+                
+                // svävningsanimationer
+                link.addEventListener('mouseenter', () => {
+                    gsap.to(link, {
+                        filter: 'blur(0.025rem)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                    
+                    gsap.to(throughline, {
+                        width: '100%',
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    gsap.to(link, {
+                        filter: 'blur(0.015rem)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                    
+                    gsap.to(throughline, {
+                        width: '0%',
+                        duration: 0.4,
+                        ease: 'power2.in'
+                    });
+                });
+            });
+            
+            // initial sidladdningsanimation
+            const mainContent = document.querySelector('main');
+            
+            // se till att alla element är synliga!!
+            gsap.set('a, .main-link, .video-link', {
+                opacity: 1,
+                visibility: 'visible'
+            });
+            
+            gsap.from(mainContent, {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.out'
+            });
+            
+            // Form animations
+            const newsletterForm = document.querySelector('.newsletter form');
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const subscribeBtn = newsletterForm.querySelector('.subscribe-btn');
+            
+            // Smooth focus animation
+            // Use CSS for input focus effects
+            const inputStyle = document.createElement('style');
+            inputStyle.textContent = `
+                input[type="email"] {
+                    transition: border-bottom-color 0.3s ease;
+                }
+                input[type="email"]:focus {
+                    border-bottom-color: rgba(25, 25, 25, 0.8);
+                }
+            `;
+            document.head.appendChild(inputStyle);
+            
+            // Use CSS for button hover effects
+            const buttonStyle = document.createElement('style');
+            buttonStyle.textContent = `
+                .subscribe-btn {
+                    transition: opacity 0.3s ease;
+                }
+                .subscribe-btn:hover {
+                    opacity: 0.8;
+                }
+            `;
+            document.head.appendChild(buttonStyle);
+            
+            // css sektioner
+            const sectionStyle = document.createElement('style');
+            sectionStyle.textContent = `
+                main > section {
+                    animation: fadeIn 0.8s ease-out forwards;
+                }
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(sectionStyle);
+            
+            // stagger delay på main sektionerna
+            document.querySelectorAll('main > section').forEach((section, index) => {
+                section.style.animationDelay = (index * 0.2) + 's';
+            });
+            
+            // omgjord css transition
+            const hoverStyleSheet = document.createElement('style');
+            hoverStyleSheet.textContent = `
+                a {
+                    transition: color 0.3s ease, --blob-width 0.4s ease, --blob-height 0.4s ease, --blob-opacity 0.4s ease;
+                }
+                a:hover {
+                    color: #000000 !important;
+                    --blob-width: 200px;
+                    --blob-height: 80px;
+                    --blob-opacity: 1;
+                }
+            `;
+            document.head.appendChild(hoverStyleSheet);
+            
+            const toggleLinks = document.querySelectorAll('.music-link, .video-link');
+            
+            document.querySelectorAll('.music-item, .video-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            toggleLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Skip processing for direct links
+                    if (this.classList.contains('direct-link')) {
+                        return; // Allow default link behavior
+                    }
+                    
+                    e.preventDefault();
+                    
+                    const parentItem = this.closest('.music-item') || this.closest('.video-item');
+                    const itemType = parentItem.classList.contains('music-item') ? 'music' : 'video';
+                    
+                    const isActive = parentItem.classList.contains('active');
+                    
+                    // ta bort aktiv klass
+                    document.querySelectorAll(`.${itemType}-item.active`).forEach(item => {
+                        if (item !== parentItem) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    if (isActive) {
+                        setTimeout(() => {
+                            parentItem.classList.remove('active');
+                        }, 10); // testa liten delay
+                    } else {
+                        parentItem.classList.add('active');
+                    }
+                });
+            });
+            
+            document.addEventListener('click', function(e) {
+                if ((!e.target.closest('.music-item') && !e.target.classList.contains('music-link')) &&
+                    (!e.target.closest('.video-item') && !e.target.classList.contains('video-link'))) {
+                    document.querySelectorAll('.music-item.active, .video-item.active').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle section title toggling
+            const toggleSections = document.querySelectorAll('.toggle-section');
+            
+            // Initialize - show all sections by default
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('hidden');
+            });
+            
+            toggleSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const targetSection = document.getElementById(sectionId + '-section');
+                    
+                    if (targetSection.classList.contains('hidden')) {
+                        targetSection.classList.remove('hidden');
+                    } else {
+                        targetSection.classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Make direct links work properly
+            document.querySelectorAll('.video-link.direct-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't prevent default for direct links
+                    e.stopPropagation();
+                });
+            });
+        });
+        
+        const newsletterForm = document.getElementById('newsletter-form');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(newsletterForm);
+                
+                fetch(newsletterForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        newsletterForm.classList.add('hidden');
+                        thankYouMessage.classList.remove('hidden');
+                        thankYouMessage.classList.add('visible');
+                        
+                        newsletterForm.reset();
+                        
+                        setTimeout(() => {
+                            thankYouMessage.classList.remove('visible');
+                            thankYouMessage.classList.add('hidden');
+                            
+                            setTimeout(() => {
+                                newsletterForm.classList.remove('hidden');
+                            }, 500);
+                        }, 10000);
+                    } else {
+                        console.error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
