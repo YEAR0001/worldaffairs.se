@@ -65,7 +65,7 @@
     
     /* Reset desktop-specific styles for mobile */
     .presave-row {
-        margin-bottom: 0.5rem;
+        margin-bottom: unset;
     }
     
     .presave-link {
