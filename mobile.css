@@ -1,35 +1,102 @@
+/* Force font loading before any content is displayed */
+@font-face {
+    font-family: 'Eurostile';
+    src: url('fonts/EurostileRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block; /* Changed from swap to block to prevent FOUT */
+}
+
 /* Mobile-specific styles that won't affect desktop */
 @media screen and (max-width: 767px) {
     html, body {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        height: auto !important;
+        overflow-y: auto !important; /* Changed from hidden to auto to allow scrolling */
+        height: 100% !important;
         min-height: 100vh; /* Fallback */
         min-height: calc(var(--vh, 1vh) * 100);
         max-width: 100vw;
         position: relative;
         width: 100%;
-        background-color: #000000;
+        background-color: #191919;
+        background-size: 400%;
+        -webkit-overflow-scrolling: touch;
+        font-family: 'Eurostile', 'AUTHENTIC Sans', sans-serif; /* Explicitly set font-family */
     }
-    
+
+
+    /* Zoomed-in texture animation for mobile */
     body::before {
         content: '';
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 400vh !important;
         background-image: url('YL-TEXTURE-DESKTOP.jpg');
-        background-size: cover;
+        background-size: 400%;
         background-position: center;
-        opacity: 0.05;
+        opacity: 0.1;
+        mix-blend-mode: overlay;
+        filter: contrast(1.2) brightness(1.2) grayscale(100);
         pointer-events: none;
-        z-index: 0;
+        z-index: 5;
+        animation: mobile-grain-animation 0.12s steps(12) infinite;
+        -webkit-animation: mobile-grain-animation 0.12s steps(12) infinite;
+        will-change: background-size;
+        transform: translateZ(0);
+    }
+    
+    /* Mobile-specific animation with scale changes only */
+    @keyframes mobile-grain-animation {
+        0% { background-size: 401%; }
+        8.33% { background-size: 405%; }
+        16.66% { background-size: 410%; }
+        25% { background-size: 415%; }
+        33.33% { background-size: 418%; }
+        41.66% { background-size: 420%; }
+        50% { background-size: 422%; }
+        58.33% { background-size: 419%; }
+        66.66% { background-size: 416%; }
+        75% { background-size: 411%; }
+        83.33% { background-size: 407%; }
+        91.66% { background-size: 404%; }
+        100% { background-size: 401%; }
+    }
+    
+    /* Webkit-specific animation for better Safari support */
+    @-webkit-keyframes mobile-grain-animation {
+        0% { background-size: 401%; }
+        8.33% { background-size: 405%; }
+        16.66% { background-size: 410%; }
+        25% { background-size: 415%; }
+        33.33% { background-size: 418%; }
+        41.66% { background-size: 420%; }
+        50% { background-size: 422%; }
+        58.33% { background-size: 419%; }
+        66.66% { background-size: 416%; }
+        75% { background-size: 411%; }
+        83.33% { background-size: 407%; }
+        91.66% { background-size: 404%; }
+        100% { background-size: 401%; }
+    }
+    
+    /* Hide grain overlay on mobile - using body::before instead */
+    .grain-overlay {
+        display:block;
+    }
+    
+    /* Hide animated image container on mobile - using body::before instead */
+    .animated-image-container {
+        display: block;
+    }
+    
+    .animated-image {
+        display: none !important;
     }
     
     main {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
+        overflow-y: auto !important; /* Changed from hidden to auto to allow scrolling */
         max-height: none !important;
         width: 100%;
         max-width: 100%;
@@ -42,6 +109,8 @@
         position: relative;
         z-index: 1;
         align-items: center;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 80px; /* Add padding to ensure footer content is visible */
     }
     
     .hero h1 {
@@ -62,6 +131,10 @@
         padding: 0;
         gap: 0.75rem;
     }
+
+    .section-title {
+        top: 0.75rem !important;
+    }
     
     /* Reset desktop-specific styles for mobile */
     .presave-row {
@@ -71,6 +144,7 @@
     .presave-link {
         font-size: 0.9rem;
         letter-spacing: 0.1rem;
+        margin-bottom: -0.75rem !important;
     }
     
     .other-links {
@@ -90,7 +164,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 40px;
+        padding-bottom: 10px;
+        margin-top: 0;
+        position: relative;
+        z-index: 100;
+        margin-bottom: 20px; /* Add space below social links */
+    }
+    
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
     }
     
     .social-links .link-row {
@@ -121,7 +206,7 @@
         padding: 0;
         gap: 0.5rem;
         max-height: 70vh;
-        overflow-y: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         padding: 0.5rem 0;
         margin-bottom: 0.5rem;
@@ -152,15 +237,17 @@
     
     /* Hide scrollbars but keep scrolling functionality */
     .video-grid::-webkit-scrollbar, .music-grid::-webkit-scrollbar,
-    .video-links::-webkit-scrollbar, .music-links::-webkit-scrollbar {
+    .video-links::-webkit-scrollbar, .music-links::-webkit-scrollbar,
+    body::-webkit-scrollbar, html::-webkit-scrollbar {
         display: none;
         width: 0;
         height: 0;
     }
     
-    .video-grid, .music-grid, .video-links, .music-links {
+    .video-grid, .music-grid, .video-links, .music-links, html, body {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+        overflow-y: auto; /* Ensure content is scrollable */
     }
     
     .video-links, .music-links {
@@ -169,7 +256,7 @@
         max-height: 75vh;
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         padding-bottom: 40px;
     }
@@ -179,7 +266,6 @@
         margin: 0.2rem 0;
         letter-spacing: 0.1rem;
         display: block;
-        filter: blur(0.25px);
     }
     
     .corner-glyph {
@@ -248,8 +334,10 @@
         text-align: center;
         padding: 0.25rem 0 1rem;
         position: relative;
-        z-index: 10;
+        z-index: 100; /* Increased z-index to ensure visibility */
         margin-bottom: env(safe-area-inset-bottom, 10px);
+        margin-top: 1rem; /* Changed from negative to positive margin */
+        pointer-events: auto; /* Ensure links are clickable */
     }
     
     .footer-logo-container {
@@ -292,10 +380,11 @@
         align-items: center;
         text-align: center;
         padding: 0.25rem 0;
-        margin-top: 0.25rem;
+        margin-top: 0;
         margin-bottom: 0.25rem;
         position: relative;
-        z-index: 10;
+        z-index: 100; /* Increased z-index to ensure visibility */
+        pointer-events: auto; /* Ensure links are clickable */
     }
     
     .newsletter {
@@ -303,6 +392,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
     }
     
     .newsletter form {
@@ -361,19 +452,19 @@
     
     h1, h2, h3, h4, h5, h6, p, a, a:active, li, ol, sup, abbr, 
     i, b, marquee, form, input, button, span, div {
-        filter: blur(0.15px);
         -webkit-font-smoothing: antialiased;
+        filter: blur(0) !important;
     }
     
     .hero h1 {
         font-size: 1.2rem !important;
         letter-spacing: 0.8rem;
         padding-left: 0.4rem;
-        filter: blur(0.15px);
         -webkit-text-stroke: 0.7px;
         margin-top: 1rem;
         width: 100%;
         transform: scaleY(75%);
+        filter: blur(0) !important;
     }
 }
 

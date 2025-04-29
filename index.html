@@ -23,6 +23,39 @@
     <meta name="twitter:title" content="WORLD AFFAIRS - Record Label by Yung Lean">
     <meta name="twitter:description" content="World Affairs is a record label founded in 2020 by Yung Lean, based in Stockholm, Sweden.">
     <link rel="canonical" href="https://www.worldaffairs.se">
+    <!-- Critical CSS to prevent FOUC -->
+    <style>
+        /* Simple loading screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-screen img {
+            width: 50px;
+            height: auto;
+            opacity: 0.5;
+        }
+        
+        /* Hide body content initially but keep the ::before texture visible */
+        body > *:not(.loading-screen) {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Make sure body::before (texture) is visible during loading */
+        body::before {
+            z-index: -1;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="responsive.css">
@@ -46,6 +79,14 @@
     </script>
 </head>
 <body>
+    <!-- Loading screen -->
+    <div class="loading-screen">
+        <img src="img/World Affairs - Logo 6.png" alt="World Affairs Loading">
+    </div>
+    
+    <!-- Mobile grain overlay -->
+    <div class="mobile-grain-overlay"></div>
+    
     <!-- hörn-kors som använder yl-cross.svg -->
     <div class="corner-glyph" id="glyph-top-left">
         <img src="yl-cross.svg" alt="Cross" class="corner-cross">
@@ -102,13 +143,13 @@
         
         <section class="links" id="main-links">
             <div class="link-row presave-row">
-                <a href="https://yunglean.komi.io/" target="blank" class="main-link presave-link">PRE-SAVE JONATAN</a>
+                <a href="https://yunglean.komi.io/" class="main-link presave-link external-link" data-href>PRE-SAVE JONATAN</a>
             </div>
             <div class="link-row other-links">
                 <a href="#" class="main-link" id="music-link">MUSIC</a>
                 <a href="#" class="main-link" id="videos-link">VIDEOS</a>
-                <a href="https://yungleanlive.com" class="main-link" target="blank">TOUR</a>
-                <a href="https://store.worldaffairs.se" class="main-link" target="blank">STORE</a>
+                <a href="https://yungleanlive.com" class="main-link external-link" data-href="https://yungleanlive.com">TOUR</a>
+                <a href="https://store.worldaffairs.se" class="main-link external-link" data-href="https://store.worldaffairs.se">STORE</a>
             </div>
             <!-- logo-markören flyttad till sidfoten -->
         </section>
@@ -123,53 +164,53 @@
                 <div class="video-item">
                     <a href="#" class="video-link" data-video="jonatan">JONATAN</a>
                     <div class="platform-links" id="jonatan-links">
-                        <a href="https://www.youtube.com/watch?v=qjYkr78anZs" target="blank" class="platform-link">FOREVER YUNG</a>
-                        <a href="https://www.youtube.com/watch?v=aioAlgp_XoQ" target="blank" class="platform-link">BABYFACE MANIACS</a>
+                        <a href="https://www.youtube.com/watch?v=qjYkr78anZs" class="platform-link external-link" data-href>FOREVER YUNG</a>
+                        <a href="https://www.youtube.com/watch?v=aioAlgp_XoQ" class="platform-link external-link" data-href>BABYFACE MANIACS</a>
                     </div>
                 </div>
                 
                 <div class="video-item">
                     <a href="#" class="video-link" data-video="globen">LIVE AT GLOBEN</a>
                     <div class="platform-links" id="globen-links">
-                        <a href="https://www.youtube.com/watch?v=mLojuu9dOko" target="blank" class="platform-link">FULL CONCERT (LIVE)</a>
-                        <a href="https://www.youtube.com/watch?v=O6OdWFAppLA" target="blank" class="platform-link">NEVER AGAIN (LIVE)</a>
+                        <a href="https://www.youtube.com/watch?v=mLojuu9dOko" class="platform-link external-link" data-href>FULL CONCERT (LIVE)</a>
+                        <a href="https://www.youtube.com/watch?v=O6OdWFAppLA" class="platform-link external-link" data-href>NEVER AGAIN (LIVE)</a>
                     </div>
                 </div>
                 
                 <div class="video-item">
                     <a href="#" class="video-link" data-video="psykos">PSYKOS</a>
                     <div class="platform-links" id="psykos-video-links">
-                        <a href="https://www.youtube.com/watch?v=X1A0maG9k7M" target="blank" class="platform-link">GHOSTS</a>
-                        <a href="https://www.youtube.com/watch?v=an_gnfu2Sfw" target="blank" class="platform-link">THINGS HAPPEN</a>
-                        <a href="https://www.youtube.com/watch?v=OKV0M2lEm-s" target="blank" class="platform-link">GOLDEN GOD</a>
+                        <a href="https://www.youtube.com/watch?v=X1A0maG9k7M" class="platform-link external-link" data-href>GHOSTS</a>
+                        <a href="https://www.youtube.com/watch?v=an_gnfu2Sfw" class="platform-link external-link" data-href>THINGS HAPPEN</a>
+                        <a href="https://www.youtube.com/watch?v=OKV0M2lEm-s" class="platform-link external-link" data-href>GOLDEN GOD</a>
                     </div>
                 </div>
                 
                 <div class="video-item">
-                    <a href="https://www.youtube.com/watch?v=dX-2IiYkm1M" target="_blank" class="video-link direct-link">SHADOWBOXING</a>
+                    <a href="https://www.youtube.com/watch?v=dX-2IiYkm1M" class="video-link direct-link external-link" data-href>SHADOWBOXING</a>
                 </div>
                 
                 <div class="video-item">
-                    <a href="https://www.youtube.com/watch?v=G9PSgWrhfSU" target="_blank" class="video-link direct-link">VICTORIOUS</a>
+                    <a href="https://www.youtube.com/watch?v=G9PSgWrhfSU" class="video-link direct-link external-link" data-href>VICTORIOUS</a>
                 </div>
                 
                 <div class="video-item">
                     <a href="#" class="video-link" data-video="stardust">STARDUST</a>
                     <div class="platform-links" id="stardust-video-links">
-                        <a href="https://youtu.be/2N1liztehz8?si=DtINC_0nzIb3ou1R" target="blank" class="platform-link">BLISS</a>
-                        <a href="https://www.youtube.com/watch?v=nsI8d4jx5GE" target="blank" class="platform-link">PARADISE LOST</a>
-                        <a href="https://www.youtube.com/watch?v=Ysf6pcyeBsY" target="blank" class="platform-link">TRIP</a>
-                        <a href="https://www.youtube.com/watch?v=mKd5QMeXqWs" target="blank" class="platform-link">WATERFALL</a>
+                        <a href="https://youtu.be/2N1liztehz8?si=DtINC_0nzIb3ou1R" class="platform-link external-link" data-href>BLISS</a>
+                        <a href="https://www.youtube.com/watch?v=nsI8d4jx5GE" class="platform-link external-link" data-href>PARADISE LOST</a>
+                        <a href="https://www.youtube.com/watch?v=Ysf6pcyeBsY" class="platform-link external-link" data-href>TRIP</a>
+                        <a href="https://www.youtube.com/watch?v=mKd5QMeXqWs" class="platform-link external-link" data-href>WATERFALL</a>
                     </div>
                 </div>
                 
                 <div class="video-item">
                     <a href="#" class="video-link" data-video="blodhundar">BLODHUNDAR & LULLABIES</a>
                     <div class="platform-links" id="blodhundar-video-links">
-                        <a href="https://www.youtube.com/watch?v=Q3xjwTNeaho" target="blank" class="platform-link">EVIL</a>
-                        <a href="https://www.youtube.com/watch?v=WaXVELmQeWc" target="blank" class="platform-link">HIGHWAY</a>
-                        <a href="https://www.youtube.com/watch?v=wcro7Hdpz6s" target="blank" class="platform-link">MACHINES</a>
-                        <a href="https://www.youtube.com/watch?v=ADXs2g0xKyM" target="blank" class="platform-link">SNAKE ICE</a>
+                        <a href="https://www.youtube.com/watch?v=Q3xjwTNeaho" class="platform-link external-link" data-href>EVIL</a>
+                        <a href="https://www.youtube.com/watch?v=WaXVELmQeWc" class="platform-link external-link" data-href>HIGHWAY</a>
+                        <a href="https://www.youtube.com/watch?v=wcro7Hdpz6s" class="platform-link external-link" data-href>MACHINES</a>
+                        <a href="https://www.youtube.com/watch?v=ADXs2g0xKyM" class="platform-link external-link" data-href>SNAKE ICE</a>
                     </div>
                 </div>
             </div>
@@ -185,15 +226,15 @@
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="jonatan">JONATAN (2025)</a>
                     <div class="platform-links" id="jonatan-links">
-                        <a href="https://yunglean.komi.io/" target="blank" class="platform-link">PRE-SAVE</a>
+                        <a href="https://yunglean.komi.io/" class="platform-link external-link" data-href>PRE-SAVE</a>
                     </div>
                 </div>
                 
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="psykos-album">PSYKOS (2024)</a>
                     <div class="platform-links" id="psykos-album-links">
-                        <a href="https://open.spotify.com/album/6aLnXrlksffrrHRb6ktBF9" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/us/album/psykos/1738277857" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/6aLnXrlksffrrHRb6ktBF9" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/psykos/1738277857" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
             
@@ -203,8 +244,8 @@
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="stardust">STARDUST (2022)</a>
                     <div class="platform-links" id="stardust-links">
-                        <a href="https://open.spotify.com/album/7v6htsHRSZ34XJCki1uZxB" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/us/album/stardust/1617839600" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/7v6htsHRSZ34XJCki1uZxB" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/stardust/1617839600" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
             
@@ -212,8 +253,8 @@
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="blodhundar">BLODHUNDAR & LULLABIES (2020)</a>
                     <div class="platform-links" id="blodhundar-links">
-                        <a href="https://open.spotify.com/album/0JqAOpJcrfRXi156OhJL7E?si=FELql9D4R06QVQZ1OwgkNA" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/se/album/blodhundar-lullabies/1544739394" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/0JqAOpJcrfRXi156OhJL7E?si=FELql9D4R06QVQZ1OwgkNA" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/se/album/blodhundar-lullabies/1544739394" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
 
@@ -223,16 +264,16 @@
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="home">HOME (2024)</a>
                     <div class="platform-links" id="home-links">
-                        <a href="https://open.spotify.com/album/551hpHmYNDkKQ6w3Y1DW01?si=5CMwtUbBRR6vafBs7CLSRQ" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/se/album/home-single/1764977755" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/551hpHmYNDkKQ6w3Y1DW01?si=5CMwtUbBRR6vafBs7CLSRQ" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/se/album/home-single/1764977755" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
                 
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="shadowboxing">SHADOWBOXING (2024)</a>
                     <div class="platform-links" id="shadowboxing-music-links">
-                        <a href="https://open.spotify.com/album/1HUf8zUI0a5FUpPUz5iWnB" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/us/album/shadowboxing-single/1747794014" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/1HUf8zUI0a5FUpPUz5iWnB" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/shadowboxing-single/1747794014" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
         
@@ -240,8 +281,8 @@
                 <div class="music-item">
                     <a href="#" class="music-link" data-album="victorious">VICTORIOUS // BULLETS (2023)</a>
                     <div class="platform-links" id="victorious-links">
-                        <a href="https://open.spotify.com/album/0ExGbjosILPh9lf3dCIM9z?si=tY_G-_gpQMKujzvbe-Tsiw" target="blank" class="platform-link">SPOTIFY</a>
-                        <a href="https://music.apple.com/us/album/victorious-bullets-feat-bladee-single/1702705727" target="blank" class="platform-link">APPLE MUSIC</a>
+                        <a href="https://open.spotify.com/album/0ExGbjosILPh9lf3dCIM9z?si=tY_G-_gpQMKujzvbe-Tsiw" class="platform-link external-link" data-href>SPOTIFY</a>
+                        <a href="https://music.apple.com/us/album/victorious-bullets-feat-bladee-single/1702705727" class="platform-link external-link" data-href>APPLE MUSIC</a>
                     </div>
                 </div>
             </div>
@@ -274,10 +315,10 @@
     <footer>
         <div class="social-links">
             <div class="link-row">
-                <a href="https://www.instagram.com/worldaffairsincorporated/" target="_blank">Instagram</a>
-                <a href="https://www.facebook.com/arizonaicedoutboys/" target="_blank">FACEBOOK</a>
-                <a href="https://www.youtube.com/channel/UCQSUJUDbJMzph0_vpyzvzZQ" target="_blank">YouTube</a>
-                <a href="mailto:info@worldaffairs.se" target="_blank">Contact</a>
+                <a href="https://www.instagram.com/worldaffairsincorporated/" class="external-link" data-href="https://www.instagram.com/worldaffairsincorporated/">Instagram</a>
+                <a href="https://www.facebook.com/arizonaicedoutboys/" class="external-link" data-href="https://www.facebook.com/arizonaicedoutboys/">FACEBOOK</a>
+                <a href="https://www.youtube.com/channel/UCQSUJUDbJMzph0_vpyzvzZQ" class="external-link" data-href="https://www.youtube.com/channel/UCQSUJUDbJMzph0_vpyzvzZQ">YouTube</a>
+                <a href="mailto:info@worldaffairs.se" class="external-link" data-href="mailto:info@worldaffairs.se">Contact</a>
             </div>
         </div>
         <div class="copyright">
@@ -399,16 +440,10 @@
             animatedImageStyle.textContent = `
                 @keyframes imageOpacity {
                     0% { opacity: 0.3; }
-                    25% { opacity: 0.4; }
-                    50% { opacity: 0.5; }
-                    75% { opacity: 0.4; }
-                    100% { opacity: 0.3; }
-                }
-                
+                    /* Image opacity animations removed per client request */
                 .animated-image {
-                    opacity: 0.3;
-                    animation: imageOpacity 10s infinite ease-in-out;
-                    mix-blend-mode: overlay;
+                    opacity: 0.8;
+                }    mix-blend-mode: overlay;
                 }
             `;
             document.head.appendChild(animatedImageStyle);
@@ -416,36 +451,22 @@
             // sätt initial blend mode och hoppa över komplex blend mode-växling
             animatedImage.style.mixBlendMode = 'overlay';
             
-            // ersätt GSAP flytande animation med CSS
+            // Floating animations removed per client request
             const floatAnimation = document.createElement('style');
             floatAnimation.textContent = `
-                @keyframes floatingContainer {
-                    0% { transform: translate(0, 0) rotate(0deg); }
-                    50% { transform: translate(3px, 5px) rotate(0.5deg); }
-                    100% { transform: translate(0, 0) rotate(0deg); }
-                }
-                
                 .animated-image-container {
-                    animation: floatingContainer 12s infinite ease-in-out;
+                    transform: none;
                 }
             `;
             document.head.appendChild(floatAnimation);
             
             // ta bort trasig animationskod
             
-            // optimerad kornanimation med CSS istället för JS-animation
-            // detta minskar JavaScript-overhead och använder GPU-acceleration
+            // Grain animations removed per client request
             const grainAnimation = document.createElement('style');
             grainAnimation.textContent = `
-                @keyframes subtle-grain-movement {
-                    0% { transform: translate(0, 0) translateZ(0); }
-                    25% { transform: translate(5px, -5px) translateZ(0); }
-                    50% { transform: translate(-3px, 2px) translateZ(0); }
-                    75% { transform: translate(-5px, -2px) translateZ(0); }
-                    100% { transform: translate(0, 0) translateZ(0); }
-                }
                 .grain-overlay {
-                    animation: subtle-grain-movement 8s infinite ease-in-out;
+                    transform: none;
                 }
             `;
             document.head.appendChild(grainAnimation);
@@ -564,29 +585,11 @@
                 left: 0
             });
             
-            // gsap css anim istallet
+            // Title glow animations removed per client request
             const glowAnimation = document.createElement('style');
             glowAnimation.textContent = `
-                @keyframes titleGlow {
-                    0% { left: 0; opacity: 0.7; }
-                    90% { left: 100%; opacity: 0.7; }
-                    100% { left: 100%; opacity: 0; }
-                }
-                
                 .title-glow {
-                    width: 8px;
-                    height: 8px;
-                    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
-                    border-radius: 50%;
-                    position: absolute;
-                    filter: blur(3px);
-                    opacity: 0.7;
-                    z-index: 10;
-                    mix-blend-mode: overlay;
-                    pointer-events: none;
-                    top: 50%;
-                    left: 0;
-                    animation: titleGlow 18s infinite linear;
+                    display: none;
                 }
             `;
             document.head.appendChild(glowAnimation);
@@ -596,18 +599,10 @@
                 starGlow.className = 'title-glow';
             }
             
-            // lägg till en subtil pulserande effekt
+            // Pulse animations removed per client request
             const pulseAnimation = document.createElement('style');
             pulseAnimation.textContent = `
-                @keyframes pulse {
-                    0% { transform: scale(1); }
-                    50% { transform: scale(0.8); }
-                    100% { transform: scale(1); }
-                }
-                
-                .title-glow {
-                    animation: pulse 1.5s infinite ease-in-out;
-                }
+                /* No pulse animation */
             `;
             document.head.appendChild(pulseAnimation);
             
@@ -678,11 +673,33 @@
                 visibility: 'visible'
             });
             
-            gsap.from(mainContent, {
-                opacity: 0,
-                duration: 1,
-                ease: 'power2.out'
+            // Handle external links differently on mobile vs desktop
+            function isMobileDevice() {
+                return (window.innerWidth <= 767 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+            }
+            
+            // Set up external links
+            document.querySelectorAll('.external-link').forEach(link => {
+                // Extract the URL from href attribute
+                const url = link.getAttribute('href');
+                // Store the URL in data-href attribute
+                link.setAttribute('data-href', url);
+                
+                link.addEventListener('click', function(e) {
+                    const linkUrl = this.getAttribute('data-href');
+                    if (isMobileDevice()) {
+                        // On mobile, navigate directly to the URL in the same tab
+                        window.location.href = linkUrl;
+                        e.preventDefault();
+                    } else {
+                        // On desktop, open in a new tab
+                        this.setAttribute('target', '_blank');
+                    }
+                });
             });
+            
+            // GSAP fade animation removed per client request
+            mainContent.style.opacity = 1;
             
             // Form animations
             const newsletterForm = document.querySelector('.newsletter form');
@@ -714,23 +731,14 @@
             `;
             document.head.appendChild(buttonStyle);
             
-            // css sektioner
+            // CSS fade animations removed per client request
             const sectionStyle = document.createElement('style');
             sectionStyle.textContent = `
                 main > section {
-                    animation: fadeIn 0.8s ease-out forwards;
-                }
-                @keyframes fadeIn {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
+                    opacity: 1;
                 }
             `;
             document.head.appendChild(sectionStyle);
-            
-            // stagger delay på main sektionerna
-            document.querySelectorAll('main > section').forEach((section, index) => {
-                section.style.animationDelay = (index * 0.2) + 's';
-            });
             
             // omgjord css transition
             const hoverStyleSheet = document.createElement('style');
@@ -775,11 +783,21 @@
                     });
                     
                     if (isActive) {
+                        // Fade out effect
+                        const platformLinks = parentItem.querySelector('.platform-links');
+                        platformLinks.style.opacity = '0';
+                        
                         setTimeout(() => {
                             parentItem.classList.remove('active');
-                        }, 10); // testa liten delay
+                        }, 200); // Allow time for fade out animation
                     } else {
                         parentItem.classList.add('active');
+                        
+                        // Ensure fade in is visible
+                        setTimeout(() => {
+                            const platformLinks = parentItem.querySelector('.platform-links');
+                            platformLinks.style.opacity = '1';
+                        }, 10);
                     }
                 });
             });
@@ -864,6 +882,28 @@
                 });
             });
         }
+        
+        // Handle page loading
+        window.addEventListener('load', function() {
+            // Hide loading screen and show content after all assets are loaded
+            setTimeout(function() {
+                const loadingScreen = document.querySelector('.loading-screen');
+                
+                // Fade in all body content
+                document.querySelectorAll('body > *:not(.loading-screen)').forEach(element => {
+                    element.style.opacity = '1';
+                });
+                
+                // Fade out loading screen
+                loadingScreen.style.transition = 'opacity 0.3s ease';
+                loadingScreen.style.opacity = '0';
+                
+                // Remove loading screen after fade
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, 300);
+            }, 100); // Small delay to ensure everything is ready
+        });
     </script>
 </body>
 </html>

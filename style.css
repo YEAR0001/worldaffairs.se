@@ -270,7 +270,7 @@ i, b, marquee, form, input, button, span, div{
     color: var(--ad) !important;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
+    filter: blur(0.05px);
 }
 
 form, input, button {
@@ -427,7 +427,7 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
+    filter: blur(0.05px);
     opacity: 1;
     position: relative;
     padding: 0 !important;
@@ -481,7 +481,7 @@ main::-webkit-scrollbar-thumb {
     font-weight: lighter;
     text-transform: uppercase;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
+    filter: blur(0.05px);
     position: relative;
     padding: 0.2rem 0.5rem;
     width: fit-content;
@@ -609,7 +609,7 @@ main::-webkit-scrollbar-thumb {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.2s ease, max-height 0.2s ease, margin-top 0.2s ease, padding 0.2s ease;
 }
 
 .platform-link {
@@ -647,7 +647,7 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
+    filter: blur(0.05px);
     position: relative;
     margin: 0;
     padding: 0;
@@ -696,7 +696,7 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
+    filter: blur(0.05px);
     position: relative;
     margin: 0;
     padding: 0;
@@ -1068,15 +1068,15 @@ footer, .newsletter, .contact {
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
     background-image: url('YL-TEXTURE-DESKTOP.jpg');
-    background-size: 100%;
-    background-position: right;
-    opacity: 1;
-    mix-blend-mode:hard-light;
+    background-size: 100vw;
+    background-position: center;
+    opacity: 0.75;
+    mix-blend-mode: overlay;
     filter: contrast(0.99) brightness(2) grayscale(100);
     animation: grain-animation 0.012s steps(1) infinite; /* 12fps animering */
     z-index: 5;
@@ -1194,9 +1194,10 @@ footer {
     
     /* Title and header adjustments */
     .hero h1 {
-        letter-spacing: 5rem;
+        letter-spacing: 1.25rem;
         font-size: 1.2em;
         margin-top: 1rem;
+        margin-left: -1.75rem;
     }
     
     /* Links section adjustments */
