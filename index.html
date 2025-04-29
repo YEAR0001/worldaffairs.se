@@ -23,9 +23,9 @@
     <meta name="twitter:title" content="WORLD AFFAIRS - Record Label by Yung Lean">
     <meta name="twitter:description" content="World Affairs is a record label founded in 2020 by Yung Lean, based in Stockholm, Sweden.">
     <link rel="canonical" href="https://www.worldaffairs.se">
-    <!-- Critical CSS to prevent FOUC -->
+    <!--  prevent FOUC -->
     <style>
-        /* Simple loading screen */
+        /*  laddskärm för undvika asset fou */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -45,13 +45,13 @@
             opacity: 0.5;
         }
         
-        /* Hide body content initially but keep the ::before texture visible */
+        /*  ::before texture visible */
         body > *:not(.loading-screen) {
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         
-        /* Make sure body::before (texture) is visible during loading */
+        /* (texture) is visible */
         body::before {
             z-index: -1;
         }
@@ -62,29 +62,24 @@
     <link rel="icon" type="image/png" href="img/World Affairs - Logo 6.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     
-    <!-- Fix for mobile Safari viewport height issues -->
+    <!-- mobile Safari viewport height issues  28.04.2025-->
     <script>
-        // Fix for mobile Safari viewport height issues with browser bar
         function setVH() {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
         
-        // Set the value on initial load
         window.addEventListener('load', setVH);
-        
-        // Update the value on resize/orientation change
-        window.addEventListener('resize', setVH);
+         window.addEventListener('resize', setVH);
         window.addEventListener('orientationchange', setVH);
     </script>
 </head>
 <body>
-    <!-- Loading screen -->
     <div class="loading-screen">
         <img src="img/World Affairs - Logo 6.png" alt="World Affairs Loading">
     </div>
     
-    <!-- Mobile grain overlay -->
+    <!-- mobile grain overlay statisk del -->
     <div class="mobile-grain-overlay"></div>
     
     <!-- hörn-kors som använder yl-cross.svg -->
@@ -673,41 +668,38 @@
                 visibility: 'visible'
             });
             
-            // Handle external links differently on mobile vs desktop
+            // mobile vs desktop
             function isMobileDevice() {
                 return (window.innerWidth <= 767 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
             }
             
-            // Set up external links
+            // externa länkar
             document.querySelectorAll('.external-link').forEach(link => {
-                // Extract the URL from href attribute
+                // URL from href attribute
                 const url = link.getAttribute('href');
-                // Store the URL in data-href attribute
+                // URL in data-href attribute
                 link.setAttribute('data-href', url);
                 
                 link.addEventListener('click', function(e) {
                     const linkUrl = this.getAttribute('data-href');
                     if (isMobileDevice()) {
-                        // On mobile, navigate directly to the URL in the same tab
+                        // URL in the same tab
                         window.location.href = linkUrl;
                         e.preventDefault();
                     } else {
-                        // On desktop, open in a new tab
+                        // desktop, open in a new tab
                         this.setAttribute('target', '_blank');
                     }
                 });
             });
             
-            // GSAP fade animation removed per client request
+            // GSAP fade animation removed
             mainContent.style.opacity = 1;
             
-            // Form animations
             const newsletterForm = document.querySelector('.newsletter form');
             const emailInput = newsletterForm.querySelector('input[type="email"]');
             const subscribeBtn = newsletterForm.querySelector('.subscribe-btn');
             
-            // Smooth focus animation
-            // Use CSS for input focus effects
             const inputStyle = document.createElement('style');
             inputStyle.textContent = `
                 input[type="email"] {
@@ -719,7 +711,6 @@
             `;
             document.head.appendChild(inputStyle);
             
-            // Use CSS for button hover effects
             const buttonStyle = document.createElement('style');
             buttonStyle.textContent = `
                 .subscribe-btn {
@@ -731,7 +722,7 @@
             `;
             document.head.appendChild(buttonStyle);
             
-            // CSS fade animations removed per client request
+           
             const sectionStyle = document.createElement('style');
             sectionStyle.textContent = `
                 main > section {
@@ -763,9 +754,9 @@
             
             toggleLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // Skip processing for direct links
+                    // skip processing for direct links
                     if (this.classList.contains('direct-link')) {
-                        return; // Allow default link behavior
+                        return; // default link behavior
                     }
                     
                     e.preventDefault();
@@ -783,17 +774,17 @@
                     });
                     
                     if (isActive) {
-                        // Fade out effect
+                        
                         const platformLinks = parentItem.querySelector('.platform-links');
                         platformLinks.style.opacity = '0';
                         
                         setTimeout(() => {
                             parentItem.classList.remove('active');
-                        }, 200); // Allow time for fade out animation
+                        }, 200); 
                     } else {
                         parentItem.classList.add('active');
                         
-                        // Ensure fade in is visible
+                        
                         setTimeout(() => {
                             const platformLinks = parentItem.querySelector('.platform-links');
                             platformLinks.style.opacity = '1';
@@ -811,10 +802,8 @@
                 }
             });
             
-            // Handle section title toggling
             const toggleSections = document.querySelectorAll('.toggle-section');
             
-            // Initialize - show all sections by default
             document.querySelectorAll('.section-content').forEach(section => {
                 section.classList.remove('hidden');
             });
@@ -883,26 +872,26 @@
             });
         }
         
-        // Handle page loading
+        //  page loading
         window.addEventListener('load', function() {
-            // Hide loading screen and show content after all assets are loaded
+           
             setTimeout(function() {
                 const loadingScreen = document.querySelector('.loading-screen');
                 
-                // Fade in all body content
+               
                 document.querySelectorAll('body > *:not(.loading-screen)').forEach(element => {
                     element.style.opacity = '1';
                 });
                 
-                // Fade out loading screen
+              
                 loadingScreen.style.transition = 'opacity 0.3s ease';
                 loadingScreen.style.opacity = '0';
                 
-                // Remove loading screen after fade
+               
                 setTimeout(function() {
                     loadingScreen.style.display = 'none';
                 }, 300);
-            }, 100); // Small delay to ensure everything is ready
+            }, 100); // delayvärde för redogörande
         });
     </script>
 </body>
