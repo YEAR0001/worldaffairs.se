@@ -1,18 +1,16 @@
-/* Force font loading before any content is displayed */
 @font-face {
     font-family: 'Eurostile';
     src: url('fonts/EurostileRegular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: block; /* Changed from swap to block to prevent FOUT */
+    font-display: block; /* test FOUT */
 }
 
-/* Mobile-specific styles that won't affect desktop */
 @media screen and (max-width: 767px) {
     html, body {
-        overflow-y: auto !important; /* Changed from hidden to auto to allow scrolling */
+        overflow-y: auto !important; 
         height: 100% !important;
-        min-height: 100vh; /* Fallback */
+        min-height: 100vh;
         min-height: calc(var(--vh, 1vh) * 100);
         max-width: 100vw;
         position: relative;
@@ -20,11 +18,10 @@
         background-color: #191919;
         background-size: 400%;
         -webkit-overflow-scrolling: touch;
-        font-family: 'Eurostile', 'AUTHENTIC Sans', sans-serif; /* Explicitly set font-family */
+        font-family: 'Eurostile', 'AUTHENTIC Sans', sans-serif; 
     }
 
 
-    /* Zoomed-in texture animation for mobile */
     body::before {
         content: '';
         display: block;
@@ -47,7 +44,6 @@
         transform: translateZ(0);
     }
     
-    /* Mobile-specific animation with scale changes only */
     @keyframes mobile-grain-animation {
         0% { background-size: 401%; }
         8.33% { background-size: 405%; }
@@ -64,7 +60,6 @@
         100% { background-size: 401%; }
     }
     
-    /* Webkit-specific animation for better Safari support */
     @-webkit-keyframes mobile-grain-animation {
         0% { background-size: 401%; }
         8.33% { background-size: 405%; }
@@ -81,12 +76,10 @@
         100% { background-size: 401%; }
     }
     
-    /* Hide grain overlay on mobile - using body::before instead */
     .grain-overlay {
         display:block;
     }
     
-    /* Hide animated image container on mobile - using body::before instead */
     .animated-image-container {
         display: block;
     }
@@ -96,7 +89,7 @@
     }
     
     main {
-        overflow-y: auto !important; /* Changed from hidden to auto to allow scrolling */
+        overflow-y: auto !important; 
         max-height: none !important;
         width: 100%;
         max-width: 100%;
@@ -104,13 +97,13 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 100vh; /* Fallback */
+        min-height: 100vh; /* fallback */
         min-height: calc(var(--vh, 1vh) * 100);
         position: relative;
         z-index: 1;
         align-items: center;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 80px; /* Add padding to ensure footer content is visible */
+        padding-bottom: 80px; 
     }
     
     .hero h1 {
@@ -136,7 +129,7 @@
         top: 0.75rem !important;
     }
     
-    /* Reset desktop-specific styles for mobile */
+
     .presave-row {
         margin-bottom: 0.5rem;
     }
@@ -168,7 +161,7 @@
         margin-top: 0;
         position: relative;
         z-index: 100;
-        margin-bottom: 20px; /* Add space below social links */
+        margin-bottom: 20px; 
     }
     
     .content-container {
@@ -235,7 +228,7 @@
         letter-spacing: 0.1rem;
     }
     
-    /* Hide scrollbars but keep scrolling functionality */
+ 
     .video-grid::-webkit-scrollbar, .music-grid::-webkit-scrollbar,
     .video-links::-webkit-scrollbar, .music-links::-webkit-scrollbar,
     body::-webkit-scrollbar, html::-webkit-scrollbar {
@@ -247,7 +240,7 @@
     .video-grid, .music-grid, .video-links, .music-links, html, body {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
-        overflow-y: auto; /* Ensure content is scrollable */
+        overflow-y: auto; /*  scrollable */
     }
     
     .video-links, .music-links {
@@ -298,7 +291,7 @@
         height: 1rem;
     }
     
-    /* Make signatures visible on mobile */
+    /*  signatures  mobile */
     .resurs4-container {
         display: block;
         right: -1rem;
@@ -334,10 +327,10 @@
         text-align: center;
         padding: 0.25rem 0 1rem;
         position: relative;
-        z-index: 100; /* Increased z-index to ensure visibility */
+        z-index: 100;
         margin-bottom: env(safe-area-inset-bottom, 10px);
-        margin-top: 1rem; /* Changed from negative to positive margin */
-        pointer-events: auto; /* Ensure links are clickable */
+        margin-top: 1rem; 
+        pointer-events: auto; 
     }
     
     .footer-logo-container {
@@ -361,7 +354,7 @@
         opacity: 0.7;
     }
     
-    /* Ensure back buttons are properly sized */
+
     .back-button {
         font-size: 0.7rem;
         letter-spacing: 0.1rem;
@@ -372,7 +365,7 @@
         height: 0.6rem;
     }
     
-    /* Fix newsletter layout for mobile */
+  
     .bottom-content {
         width: 100%;
         display: flex;
@@ -383,8 +376,8 @@
         margin-top: 0;
         margin-bottom: 0.25rem;
         position: relative;
-        z-index: 100; /* Increased z-index to ensure visibility */
-        pointer-events: auto; /* Ensure links are clickable */
+        z-index: 100; 
+        pointer-events: auto; 
     }
     
     .newsletter {
