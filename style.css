@@ -231,7 +231,6 @@ a {
 
 .hero h1 {
     font-family: 'Compacta';
-    filter: blur(0.033rem);
     transform: scaleY(80%);
     letter-spacing: 4rem;
     -webkit-text-stroke: 0.5px;
@@ -270,7 +269,6 @@ i, b, marquee, form, input, button, span, div{
     color: var(--ad) !important;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.05px);
 }
 
 form, input, button {
@@ -403,7 +401,6 @@ main::-webkit-scrollbar-thumb {
     opacity: 0.5;
     max-width: 80px;
     position: relative;
-    filter: blur(0.3px);
     animation: cursor-pulse 20s steps(10, end) infinite alternate;
     animation-play-state: running;
     transform-origin: center center;
@@ -427,7 +424,6 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.05px);
     opacity: 1;
     position: relative;
     padding: 0 !important;
@@ -481,7 +477,6 @@ main::-webkit-scrollbar-thumb {
     font-weight: lighter;
     text-transform: uppercase;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.05px);
     position: relative;
     padding: 0.2rem 0.5rem;
     width: fit-content;
@@ -647,7 +642,6 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.05px);
     position: relative;
     margin: 0;
     padding: 0;
@@ -696,7 +690,6 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.05px);
     position: relative;
     margin: 0;
     padding: 0;
@@ -734,7 +727,6 @@ main::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-align: center;
     font-family: 'AUTHENTIC Sans';
-    filter: blur(0.25px);
     position: relative;
     padding: 0.2rem 0.5rem;
     margin: 0.5rem 0;
@@ -908,40 +900,40 @@ footer, .newsletter, .contact {
     opacity: 0;
     mix-blend-mode: overlay;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out; /* Smoother transitions instead of steps */
-    animation-duration: 4s; /* Slow animation */
+    animation-timing-function: ease-in-out; 
+    animation-duration: 4s; 
     display: flex;
     justify-content: center;
     align-items: center;
-    will-change: opacity; /* Hardware acceleration hint */
-    transform: translateZ(0); /* Force GPU rendering */
+    will-change: opacity; 
+    transform: translateZ(0);
 }
 
 .resource-cross {
-    opacity: 0.25; /* More subtle transparency */
-    filter: blur(2px); /* Reduced blur for better performance */
-    position: absolute; /* Allow positioning outside normal flow */
-    transform: translateZ(0); /* Force GPU rendering */
-    will-change: transform; /* Hardware acceleration hint */
+    opacity: 0.25;
+    filter: blur(2px); 
+    position: absolute;
+    transform: translateZ(0);
+    will-change: transform; 
 }
 
-/* Cross resource styles */
 .cross-resource {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Hide overflow for zoomed elements */
-    position: relative; /* For absolute positioning of children */
-    transform: translateZ(0); /* Force GPU rendering */
+    overflow: hidden; 
+    position: relative; 
+    transform: translateZ(0); 
+/* gpu rendering med Z(0) */
 }
 
-/* Cross transformation variations - extremely zoomed in for texture */
+/* cross transformation inzoomat */
 .normal .resource-cross {
     transform: none;
-    width: 400%; /* Extremely large */
+    width: 400%;
     height: 400%;
-    max-width: none; /* No maximum width constraint */
-    left: -150%; /* Position to show interesting parts */
+    max-width: none;
+    left: -150%; 
     top: -150%;
 }
 
@@ -1248,7 +1240,7 @@ footer {
     }
 }
 
-/* Mobile devices - portrait phones */
+/* mobila devices - portrait phones */
 @media screen and (max-width: 767px) {
     html, body {
         overflow-x: hidden !important;
@@ -1398,7 +1390,6 @@ footer {
         font-size: 0.5rem;
     }
     
-    /* Ensure back buttons are properly sized */
     .back-button {
         font-size: 0.7rem;
         letter-spacing: 0.1rem;
@@ -1410,7 +1401,7 @@ footer {
     }
 }
 
-/* Tablet devices */
+/* tablet devices */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     body {
         overflow-y: auto !important;
