@@ -23,9 +23,8 @@
     <meta name="twitter:title" content="WORLD AFFAIRS - Record Label by Yung Lean">
     <meta name="twitter:description" content="World Affairs is a record label founded in 2020 by Yung Lean, based in Stockholm, Sweden.">
     <link rel="canonical" href="https://www.worldaffairs.se">
-    <!--  prevent FOUC -->
+    <!-- förhindra FOUC -->
     <style>
-        /*  laddskärm för undvika asset fou */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -45,13 +44,11 @@
             opacity: 0.5;
         }
         
-        /*  ::before texture visible */
         body > *:not(.loading-screen) {
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         
-        /* (texture) is visible */
         body::before {
             z-index: -1;
         }
@@ -62,7 +59,6 @@
     <link rel="icon" type="image/png" href="img/World Affairs - Logo 6.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     
-    <!-- mobile Safari viewport height issues  28.04.2025-->
     <script>
         function setVH() {
             let vh = window.innerHeight * 0.01;
@@ -70,7 +66,8 @@
         }
         
         window.addEventListener('load', setVH);
-         window.addEventListener('resize', setVH);
+        
+        window.addEventListener('resize', setVH);
         window.addEventListener('orientationchange', setVH);
     </script>
 </head>
@@ -79,35 +76,15 @@
         <img src="img/World Affairs - Logo 6.png" alt="World Affairs Loading">
     </div>
     
-    <!-- mobile grain overlay statisk del -->
     <div class="mobile-grain-overlay"></div>
     
-    <!-- hörn-kors som använder yl-cross.svg -->
-    <div class="corner-glyph" id="glyph-top-left">
-        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
-    </div>
-    <div class="corner-glyph" id="glyph-top-right">
-        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
-    </div>
-    <div class="corner-glyph" id="glyph-bottom-left">
-        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
-    </div>
-    <div class="corner-glyph" id="glyph-bottom-right">
-        <img src="yl-cross.svg" alt="Cross" class="corner-cross">
-    </div>
     
-    <!-- animerad bild med korneffekt -->
     <div class="animated-image-container">
         <div class="animated-image"></div>
         <div class="grain-overlay"></div>
     </div>
     
-    <div class="corner-image corner-left"></div>
-    <div class="corner-image corner-right"></div>
-    <div class="resurs4-container"></div>
-    <div class="resurs6-container"></div>
     
-    <!-- stort kors-overlay med animeringar -->
     <div class="resource-container">
         <div class="resource cross-resource normal">
             <img src="yl-cross.svg" alt="Cross" class="resource-cross">
@@ -130,9 +107,7 @@
     <main>
         <section class="hero">
             <div class="title-container">
-                <a href="index.html" class="title-link">
-                    <h1>WORLD AFFAIRS</h1>
-                </a>
+                <!-- WORLD AFFAIRS title removed -->
             </div>
         </section>
         
@@ -152,7 +127,7 @@
         <section class="video-links" id="video-section">
             <h2 class="section-title">VIDEOS</h2>
             <div class="back-button">
-                <div class="back-cross"><img src="yl-cross.svg" alt="Cross"></div>
+                <!-- Back cross removed -->
                 <div class="back-text">BACK</div>
             </div>
             <div class="video-grid">
@@ -214,7 +189,6 @@
         <section class="music-links" id="music-section">
             <h2 class="section-title">MUSIC</h2>
             <div class="back-button">
-                <div class="back-cross"><img src="yl-cross.svg" alt="Cross"></div>
                 <div class="back-text">BACK</div>
             </div>
             <div class="music-grid">
@@ -288,8 +262,9 @@
 
         <div class="bottom-content">
             
-            <section class="newsletter">
-                <form id="newsletter-form" action="https://formspree.io/f/info@worldaffairs.se" method="POST" autocomplete="off">
+            <!-- newsletter form hidden / formspree set up ifall att -->
+            <section class="newsletter" style="display: none;">
+                <form id="newsletter-form" action="https://formspree.io/f/YOUR_FORMSPREE_FORM_ID" method="POST" autocomplete="off">
                     <div class="newsletter-row">
                         <h2>NEWSLETTER</h2>
                         <input type="email" name="email" placeholder="Email address" required autocomplete="off">
@@ -457,7 +432,6 @@
             
             // ta bort trasig animationskod
             
-            // Grain animations removed per client request
             const grainAnimation = document.createElement('style');
             grainAnimation.textContent = `
                 .grain-overlay {
@@ -594,68 +568,19 @@
                 starGlow.className = 'title-glow';
             }
             
-            // Pulse animations removed per client request
             const pulseAnimation = document.createElement('style');
             pulseAnimation.textContent = `
                 /* No pulse animation */
             `;
             document.head.appendChild(pulseAnimation);
             
-            // hover-effekter för länkar
             const links = document.querySelectorAll('a');
             
             links.forEach(link => {
-                // se till att länkar är synliga först
                 gsap.set(link, {
                     opacity: 1,
                     visibility: 'visible',
                     display: 'inline-block'
-                });
-                
-                //  throughline element 
-                const throughline = document.createElement('span');
-                throughline.classList.add('link-throughline');
-                link.appendChild(throughline);
-                
-                gsap.set(throughline, {
-                    width: '0%',
-                    height: '1px',
-                    backgroundColor: '#191919',
-                    position: 'absolute',
-                    top: '50%', 
-                    left: '0',
-                    filter: 'blur(0px)',
-                    opacity: 0.7,
-                    zIndex: 0
-                });
-                
-                // svävningsanimationer
-                link.addEventListener('mouseenter', () => {
-                    gsap.to(link, {
-                        filter: 'blur(0.025rem)',
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                    
-                    gsap.to(throughline, {
-                        width: '100%',
-                        duration: 0.4,
-                        ease: 'power2.out'
-                    });
-                });
-                
-                link.addEventListener('mouseleave', () => {
-                    gsap.to(link, {
-                        filter: 'blur(0.015rem)',
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                    
-                    gsap.to(throughline, {
-                        width: '0%',
-                        duration: 0.4,
-                        ease: 'power2.in'
-                    });
                 });
             });
             
@@ -668,38 +593,32 @@
                 visibility: 'visible'
             });
             
-            // mobile vs desktop
             function isMobileDevice() {
                 return (window.innerWidth <= 767 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
             }
             
-            // externa länkar
             document.querySelectorAll('.external-link').forEach(link => {
-                // URL from href attribute
                 const url = link.getAttribute('href');
-                // URL in data-href attribute
                 link.setAttribute('data-href', url);
                 
                 link.addEventListener('click', function(e) {
                     const linkUrl = this.getAttribute('data-href');
                     if (isMobileDevice()) {
-                        // URL in the same tab
                         window.location.href = linkUrl;
                         e.preventDefault();
                     } else {
-                        // desktop, open in a new tab
                         this.setAttribute('target', '_blank');
                     }
                 });
             });
             
-            // GSAP fade animation removed
             mainContent.style.opacity = 1;
             
             const newsletterForm = document.querySelector('.newsletter form');
             const emailInput = newsletterForm.querySelector('input[type="email"]');
             const subscribeBtn = newsletterForm.querySelector('.subscribe-btn');
             
+        
             const inputStyle = document.createElement('style');
             inputStyle.textContent = `
                 input[type="email"] {
@@ -711,18 +630,7 @@
             `;
             document.head.appendChild(inputStyle);
             
-            const buttonStyle = document.createElement('style');
-            buttonStyle.textContent = `
-                .subscribe-btn {
-                    transition: opacity 0.3s ease;
-                }
-                .subscribe-btn:hover {
-                    opacity: 0.8;
-                }
-            `;
-            document.head.appendChild(buttonStyle);
             
-           
             const sectionStyle = document.createElement('style');
             sectionStyle.textContent = `
                 main > section {
@@ -731,20 +639,6 @@
             `;
             document.head.appendChild(sectionStyle);
             
-            // omgjord css transition
-            const hoverStyleSheet = document.createElement('style');
-            hoverStyleSheet.textContent = `
-                a {
-                    transition: color 0.3s ease, --blob-width 0.4s ease, --blob-height 0.4s ease, --blob-opacity 0.4s ease;
-                }
-                a:hover {
-                    color: #000000 !important;
-                    --blob-width: 200px;
-                    --blob-height: 80px;
-                    --blob-opacity: 1;
-                }
-            `;
-            document.head.appendChild(hoverStyleSheet);
             
             const toggleLinks = document.querySelectorAll('.music-link, .video-link');
             
@@ -754,9 +648,8 @@
             
             toggleLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // skip processing for direct links
                     if (this.classList.contains('direct-link')) {
-                        return; // default link behavior
+                        return; 
                     }
                     
                     e.preventDefault();
@@ -774,7 +667,6 @@
                     });
                     
                     if (isActive) {
-                        
                         const platformLinks = parentItem.querySelector('.platform-links');
                         platformLinks.style.opacity = '0';
                         
@@ -783,7 +675,6 @@
                         }, 200); 
                     } else {
                         parentItem.classList.add('active');
-                        
                         
                         setTimeout(() => {
                             const platformLinks = parentItem.querySelector('.platform-links');
@@ -821,10 +712,8 @@
                 });
             });
             
-            // Make direct links work properly
             document.querySelectorAll('.video-link.direct-link').forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // Don't prevent default for direct links
                     e.stopPropagation();
                 });
             });
@@ -872,26 +761,21 @@
             });
         }
         
-        //  page loading
         window.addEventListener('load', function() {
-           
             setTimeout(function() {
                 const loadingScreen = document.querySelector('.loading-screen');
                 
-               
                 document.querySelectorAll('body > *:not(.loading-screen)').forEach(element => {
                     element.style.opacity = '1';
                 });
                 
-              
                 loadingScreen.style.transition = 'opacity 0.3s ease';
                 loadingScreen.style.opacity = '0';
                 
-               
                 setTimeout(function() {
                     loadingScreen.style.display = 'none';
                 }, 300);
-            }, 100); // delayvärde för redogörande
+            }, 100); 
         });
     </script>
 </body>
