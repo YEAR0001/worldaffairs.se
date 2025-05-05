@@ -25,65 +25,63 @@
 
 
     /* Zoomed-in texture animation for mobile */
-    body::before {
+    body::after {
         content: '';
-        display: block;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 400vh !important;
+        width: 100%;
+        height: 100%;
         background-image: url('YL-TEXTURE-DESKTOP.jpg');
         background-size: 400%;
-        background-position: center;
-        opacity: 0.1;
+        opacity: 0.85;
         mix-blend-mode: overlay;
-        filter: contrast(1.2) brightness(1.2) grayscale(100);
         pointer-events: none;
-        z-index: 5;
+        z-index: 4001;
+        will-change: transform;
+        transform: translateZ(0);
         animation: mobile-grain-animation 0.12s steps(12) infinite;
         -webkit-animation: mobile-grain-animation 0.12s steps(12) infinite;
-        will-change: background-size;
-        transform: translateZ(0);
+    }
+    
+    /* Hide the original mobile grain overlay */
+    .mobile-grain-overlay {
+        display: block;
     }
     
     /* Mobile-specific animation with scale changes only */
     @keyframes mobile-grain-animation {
-        0% { background-size: 401%; }
-        8.33% { background-size: 405%; }
-        16.66% { background-size: 410%; }
-        25% { background-size: 415%; }
-        33.33% { background-size: 418%; }
-        41.66% { background-size: 420%; }
-        50% { background-size: 422%; }
-        58.33% { background-size: 419%; }
-        66.66% { background-size: 416%; }
-        75% { background-size: 411%; }
-        83.33% { background-size: 407%; }
-        91.66% { background-size: 404%; }
-        100% { background-size: 401%; }
+        0% { background-position: 0% 0%; }
+        10% { background-position: 5% 5%; }
+        20% { background-position: -5% 10%; }
+        30% { background-position: 10% -5%; }
+        40% { background-position: -10% -10%; }
+        50% { background-position: 0% 15%; }
+        60% { background-position: 15% 0%; }
+        70% { background-position: -15% 5%; }
+        80% { background-position: 5% -15%; }
+        90% { background-position: -5% -5%; }
+        100% { background-position: 0% 0%; }
     }
     
     /* Webkit-specific animation for better Safari support */
     @-webkit-keyframes mobile-grain-animation {
-        0% { background-size: 401%; }
-        8.33% { background-size: 405%; }
-        16.66% { background-size: 410%; }
-        25% { background-size: 415%; }
-        33.33% { background-size: 418%; }
-        41.66% { background-size: 420%; }
-        50% { background-size: 422%; }
-        58.33% { background-size: 419%; }
-        66.66% { background-size: 416%; }
-        75% { background-size: 411%; }
-        83.33% { background-size: 407%; }
-        91.66% { background-size: 404%; }
-        100% { background-size: 401%; }
+        0% { background-position: 0% 0%; }
+        10% { background-position: 5% 5%; }
+        20% { background-position: -5% 10%; }
+        30% { background-position: 10% -5%; }
+        40% { background-position: -10% -10%; }
+        50% { background-position: 0% 15%; }
+        60% { background-position: 15% 0%; }
+        70% { background-position: -15% 5%; }
+        80% { background-position: 5% -15%; }
+        90% { background-position: -5% -5%; }
+        100% { background-position: 0% 0%; }
     }
     
-    /* Hide grain overlay on mobile - using body::before instead */
+    /* Hide the original grain overlay since we're using body::after */
     .grain-overlay {
-        display:block;
+        display: none;
     }
     
     /* Hide animated image container on mobile - using body::before instead */
@@ -316,7 +314,15 @@
     }
     
     .resource-container {
-        display: none;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        pointer-events: none;
+        opacity: 0.7;
     }
     
     .animated-image-container {
