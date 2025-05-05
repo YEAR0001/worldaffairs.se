@@ -254,10 +254,7 @@ a {
     z-index: 20;
 }
 
-.title-link:hover h1 {
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
+/* Hover function removed for title-link */
 
 h1, h2, h3, h4, h5, h6, p, a, a:active, li, ol, sup, abbr, 
 i, b, marquee, form, input, button, span, div{
@@ -429,40 +426,15 @@ main::-webkit-scrollbar-thumb {
     padding: 0 !important;
 }
 
-.main-link:hover {
-    color: #adadad !important;
-    font-weight: normal;
-    text-shadow: 0 0 1px #adadad;
-}
-
 .main-link::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -2px;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--ad);
-    border-radius: 2px;
-    opacity: 0;
-    filter: blur(8px);
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
-
-.main-link:hover::after {
-    opacity: 0.3;
-}
-
-/* Video links section */
-.video-links,
-.music-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    width: 0;
+    height: 1px;
+    background-color: #adadad;
+    transition: width 0.3s ease;
 }
 
 .back-button {
@@ -480,35 +452,26 @@ main::-webkit-scrollbar-thumb {
     position: relative;
     padding: 0.2rem 0.5rem;
     width: fit-content;
-}
-
-.back-button:hover {
-    color: #adadad !important;
-    font-weight: normal;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .back-text {
     position: relative;
+    text-align: center;
+    width: 100%;
 }
 
 .back-text::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -2px;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--ad);
-    border-radius: 4px;
-    opacity: 0;
-    filter: blur(8px);
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
-
-.back-button:hover .back-text::after {
-    opacity: 0.3;
+    width: 0;
+    height: 1px;
+    background-color: #adadad;
+    transition: width 0.3s ease;
 }
 
 .back-cross {
@@ -533,6 +496,8 @@ main::-webkit-scrollbar-thumb {
     font-family: 'AUTHENTIC Sans';
     position: relative;
     top: -0.5rem;
+    width: 100%;
+    display: block;
 }
 
 .toggle-section {
@@ -540,8 +505,8 @@ main::-webkit-scrollbar-thumb {
     transition: opacity 0.3s ease;
 }
 
-.toggle-section:hover {
-    opacity: 0.7;
+.toggle-section {
+    opacity: 1;
 }
 
 .section-content {
@@ -581,6 +546,7 @@ main::-webkit-scrollbar-thumb {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .music-item, .video-item {
@@ -617,8 +583,8 @@ main::-webkit-scrollbar-thumb {
     font-family: 'AUTHENTIC Sans';
 }
 
-.platform-link:hover {
-    color: #adadad;
+.platform-link {
+    color: #f1f1f1;
 }
 
 .music-item.active .platform-links, .video-item.active .platform-links {
@@ -628,6 +594,14 @@ main::-webkit-scrollbar-thumb {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     overflow: visible;
+}
+
+.video-links, .music-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
 }
 
 .video-link,
@@ -650,34 +624,16 @@ main::-webkit-scrollbar-thumb {
     height: 1.5rem;
 }
 
-.video-link:hover,
-.music-link:hover,
-.platform-link:hover,
-.video-item > .platform-link:hover {
-    color: var(--ad) !important;
-    filter: blur(0);
-    text-shadow: 0 0 5px var(--ad);
-}
-
 .video-link::after,
 .music-link::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -2px;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--ad);
-    border-radius: 4px;
-    opacity: 0;
-    filter: blur(8px);
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
-
-.video-link:hover::after,
-.music-link:hover::after {
-    opacity: 0.3;
+    width: 0;
+    height: 1px;
+    background-color: #adadad;
+    transition: width 0.3s ease;
 }
 
 .video-item .platform-link, .video-item > .platform-link {
@@ -714,7 +670,8 @@ main::-webkit-scrollbar-thumb {
 
 .social-links .link-row {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .social-links a {
@@ -722,7 +679,6 @@ main::-webkit-scrollbar-thumb {
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 2pt;
-    transition: all 0.3s ease;
     font-weight: lighter;
     text-transform: uppercase;
     text-align: center;
@@ -733,28 +689,15 @@ main::-webkit-scrollbar-thumb {
     display: inline-block;
 }
 
-.social-links a:hover {
-    color: #adadad !important;
-    font-weight: normal;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
-}
-
 .social-links a::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -2px;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--ad);
-    border-radius: 4px;
-    opacity: 0;
-    filter: blur(8px);
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
-
-.social-links a:hover::after {
+    width: 0;
+    height: 1px;
+    background-color: #adadad;
+    transition: width 0.3s ease;
     opacity: 0.3;
 }
 
@@ -900,40 +843,40 @@ footer, .newsletter, .contact {
     opacity: 0;
     mix-blend-mode: overlay;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out; 
-    animation-duration: 4s; 
+    animation-timing-function: ease-in-out; /* Smoother transitions instead of steps */
+    animation-duration: 4s; /* Slow animation */
     display: flex;
     justify-content: center;
     align-items: center;
-    will-change: opacity; 
-    transform: translateZ(0);
+    will-change: opacity; /* Hardware acceleration hint */
+    transform: translateZ(0); /* Force GPU rendering */
 }
 
 .resource-cross {
-    opacity: 0.25;
-    filter: blur(2px); 
-    position: absolute;
-    transform: translateZ(0);
-    will-change: transform; 
+    opacity: 0.25; /* More subtle transparency */
+    filter: blur(2px); /* Reduced blur for better performance */
+    position: absolute; /* Allow positioning outside normal flow */
+    transform: translateZ(0); /* Force GPU rendering */
+    will-change: transform; /* Hardware acceleration hint */
 }
 
+/* Cross resource styles */
 .cross-resource {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
-    position: relative; 
-    transform: translateZ(0); 
-/* gpu rendering med Z(0) */
+    overflow: hidden; /* Hide overflow for zoomed elements */
+    position: relative; /* For absolute positioning of children */
+    transform: translateZ(0); /* Force GPU rendering */
 }
 
-/* cross transformation inzoomat */
+/* Cross transformation variations - extremely zoomed in for texture */
 .normal .resource-cross {
     transform: none;
-    width: 400%;
+    width: 400%; /* Extremely large */
     height: 400%;
-    max-width: none;
-    left: -150%; 
+    max-width: none; /* No maximum width constraint */
+    left: -150%; /* Position to show interesting parts */
     top: -150%;
 }
 
@@ -1240,7 +1183,7 @@ footer {
     }
 }
 
-/* mobila devices - portrait phones */
+/* Mobile devices - portrait phones */
 @media screen and (max-width: 767px) {
     html, body {
         overflow-x: hidden !important;
@@ -1390,6 +1333,7 @@ footer {
         font-size: 0.5rem;
     }
     
+    /* Ensure back buttons are properly sized */
     .back-button {
         font-size: 0.7rem;
         letter-spacing: 0.1rem;
@@ -1401,7 +1345,7 @@ footer {
     }
 }
 
-/* tablet devices */
+/* Tablet devices */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     body {
         overflow-y: auto !important;
